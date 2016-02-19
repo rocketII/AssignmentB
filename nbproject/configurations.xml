@@ -4,6 +4,11 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
+      <itemPath>manager.h</itemPath>
+      <itemPath>menu.h</itemPath>
+      <itemPath>ramar.h</itemPath>
+      <itemPath>reglar.h</itemPath>
+      <itemPath>virke.h</itemPath>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
                    displayName="Resource Files"
@@ -13,6 +18,11 @@
                    displayName="Source Files"
                    projectFiles="true">
       <itemPath>main.cpp</itemPath>
+      <itemPath>manager.cpp</itemPath>
+      <itemPath>menu.cpp</itemPath>
+      <itemPath>ramar..cpp</itemPath>
+      <itemPath>reglar.cpp</itemPath>
+      <itemPath>virke.cpp</itemPath>
     </logicalFolder>
     <logicalFolder name="TestFiles"
                    displayName="Test Files"
@@ -25,7 +35,11 @@
                    kind="IMPORTANT_FILES_FOLDER">
       <itemPath>Makefile</itemPath>
     </logicalFolder>
+    <itemPath>infoForNoobs.txt</itemPath>
   </logicalFolder>
+  <sourceRootList>
+    <Elem>.</Elem>
+  </sourceRootList>
   <projectmakefile>Makefile</projectmakefile>
   <confs>
     <conf name="Debug" type="1">
@@ -39,7 +53,29 @@
           <standard>8</standard>
         </ccTool>
       </compileType>
+      <item path="infoForNoobs.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="manager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="manager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ramar..cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ramar.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="reglar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="reglar.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="virke.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="virke.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -63,7 +99,29 @@
           <developmentMode>5</developmentMode>
         </asmTool>
       </compileType>
+      <item path="infoForNoobs.txt" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="manager.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="manager.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="menu.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="ramar..cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="ramar.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="reglar.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="reglar.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="virke.cpp" ex="false" tool="1" flavor2="0">
+      </item>
+      <item path="virke.h" ex="false" tool="3" flavor2="0">
       </item>
     </conf>
   </confs>
