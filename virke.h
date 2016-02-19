@@ -27,11 +27,12 @@ public:
 	virke(float prisPerMeter, string dimension);
 	//copy construct
 	virke(const virke &origin);
+        //assignment op
+        virke& operator=(const virke &obj);
 	//destruct virtual
-	//assignment op
 	virtual ~virke();
 	string tostring()const;
-	virtual string toStringSpec()=0;
+	virtual string toStringSpec()const=0;
 	void setPrisPerMeter(float prisPerMeter);
 	void setDimension(string dimension);
 	
