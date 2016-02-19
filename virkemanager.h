@@ -21,7 +21,7 @@ class Virkemanager
 {
 private:
 	virke **ptr2ArrayWithVirkePtr;
-	int counterVirke;
+	int counterVirke, virkeArrayCapacity;
 	string virkeDataTmpCache;
 public:
 	//construct
