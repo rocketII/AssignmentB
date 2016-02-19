@@ -25,6 +25,8 @@ class paneler: public virke
 		paneler(float prisPerMeter, string dimension, string Profile, bool painted);
 		//destruct
 		~paneler(){};
+		//copy construct
+		//assignment op
 		// 2 cpp file 
 		//get all data to std::string
 		string toStringSpec();

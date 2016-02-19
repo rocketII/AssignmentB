@@ -9,7 +9,7 @@
 
 #include"virkemanager.h"
 
-void tryVirkeManager();
+
 
 void treVirkeManager()
 {
@@ -25,16 +25,20 @@ void treVirkeManager()
 	cout <<" jack has the following objects stored: " << jacksTimbers.AllDataVirke() << endl;
 	cout <<" I have the following objects stored: "<< myTimbers.AllDataVirke() << endl;
 	
-	//test copy constructor
+	
+	//test = operator for class
 	jacksTimbers = myTimbers;
 	cout <<" jack has the following objects stored: " << jacksTimbers.AllDataVirke() << endl;
 	cout <<" I have the following objects stored: "<< myTimbers.AllDataVirke() << endl;
 	
-	//test = operator for class
+	//test copy constructor
 	Virkemanager sarasTimbers= jacksTimbers;
 	cout <<" Sara has the following objects stored: " << sarasTimbers.AllDataVirke() << endl;
 	cout <<" jack has the following objects stored: " << jacksTimbers.AllDataVirke() << endl;
-	
+	//try remove one obj from one and check if it change in other obj.
+	sarasTimbers.removeVirke();
+	cout <<" Sara has the following objects stored: " << sarasTimbers.AllDataVirke() << endl;
+	cout <<" jack has the following objects stored: " << jacksTimbers.AllDataVirke() << endl;
 	
 	
 	

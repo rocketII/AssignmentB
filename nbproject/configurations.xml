@@ -4,7 +4,7 @@
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <itemPath>menu.h</itemPath>
+      <itemPath>TestVirkeManager.h</itemPath>
       <itemPath>paneler.h</itemPath>
       <itemPath>reglar.h</itemPath>
       <itemPath>virke.h</itemPath>
@@ -19,7 +19,6 @@
                    projectFiles="true">
       <itemPath>TestVirkeManager.cpp</itemPath>
       <itemPath>main.cpp</itemPath>
-      <itemPath>menu.cpp</itemPath>
       <itemPath>paneler.cpp</itemPath>
       <itemPath>reglar.cpp</itemPath>
       <itemPath>virke.cpp</itemPath>
@@ -56,13 +55,11 @@
       </compileType>
       <item path="TestVirkeManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="TestVirkeManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="infoForNoobs.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="menu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="paneler.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -104,13 +101,11 @@
       </compileType>
       <item path="TestVirkeManager.cpp" ex="false" tool="1" flavor2="0">
       </item>
+      <item path="TestVirkeManager.h" ex="false" tool="3" flavor2="0">
+      </item>
       <item path="infoForNoobs.txt" ex="false" tool="3" flavor2="0">
       </item>
       <item path="main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="menu.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="menu.h" ex="false" tool="3" flavor2="0">
       </item>
       <item path="paneler.cpp" ex="false" tool="1" flavor2="0">
       </item>

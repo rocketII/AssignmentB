@@ -23,6 +23,8 @@ private:
 public:
 	reglar(float prisPerMeter, string dimension, string klassificering);
 	//in cpp reglar(float prisPerMeter, string dimension, string klassificering):virke(prisPerMeter,dimension){}
+	//copy construct
+        //assignment op
 	string toStringSpec();
 	//get and set functions
 	bool setProfile(string klassificering );

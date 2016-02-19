@@ -37,7 +37,6 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/TestVirkeManager.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/menu.o \
 	${OBJECTDIR}/paneler.o \
 	${OBJECTDIR}/reglar.o \
 	${OBJECTDIR}/virke.o \
@@ -77,11 +76,6 @@ ${OBJECTDIR}/main.o: main.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/menu.o: menu.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/menu.o menu.cpp
 
 ${OBJECTDIR}/paneler.o: paneler.cpp 
 	${MKDIR} -p ${OBJECTDIR}

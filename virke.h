@@ -28,11 +28,12 @@ public:
 	//copy construct
 	virke(const virke &origin);
 	//destruct virtual
+	//assignment op
 	virtual ~virke();
 	string tostring()const;
 	virtual string toStringSpec()=0;
-	virtual void setPrisPerMeter(float prisPerMeter)=0;
-	virtual void setDimension(string dimension)=0;
+	void setPrisPerMeter(float prisPerMeter);
+	void setDimension(string dimension);
 	
 };
 
