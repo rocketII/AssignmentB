@@ -21,6 +21,9 @@ class reglar : public virke
 private:
 	string klassificering;
 public:
+	reglar(float prisPerMeter, string dimension, string klassificering);
+	//in cpp reglar(float prisPerMeter, string dimension, string klassificering):virke(prisPerMeter,dimension){}
+	string toStringSpec();
 	
 };
 

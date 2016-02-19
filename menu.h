@@ -13,7 +13,7 @@
 
 #ifndef MENU_H
 #define MENU_H
-#include "manager.h"
+#include "virkemanager.h"
 class menu
 {
 private:

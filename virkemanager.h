@@ -14,22 +14,33 @@
 #ifndef MANAGER_H
 #define MANAGER_H
 #include"virke.h"
-class manager
+#include"paneler.h"
+#include""
+//this class aka container class for virke and
+class Virkemanager
 {
 private:
 	virke **ptr2ArrayWithVirkePtr;
-	int numberOfReglar, numberOfPaneler;
+	int numberOfReglar, numberOfPaneler, numberOfVirke;
+	string virkeDataTmpCache;
 public:
-        manager();
-	~manager();
-	manager(const manager &origin);
-	manager& operator=(const manager &origin);
+	//construct
+        Virkemanager();
+	//destruct
+	~Virkemanager();
+	//construct with same class obj, aka copy construct
+	Virkemanager(const Virkemanager &origin);
+	//overiding the '=' operator
+	Virkemanager& operator=(const Virkemanager &origin);
 	bool newPanel(string dimension, float prisPerMeter, string profile, bool painted);
 	bool newRegel(string dimension, float prisPerMeter, string klassificering);
 	bool changePaintedStatus(string dimension, string profile);
+	
 	string AllDataVirke();
 	string AllDataRamar();
 	string AllDataPaneler();
+	bool removeVirke(float price, string dimension);
+	//numberOf used with changing string array holder of virke data.
 	int numberOfReglar();
 	int numberOfPaneler();
 };

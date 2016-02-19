@@ -26,7 +26,7 @@ public:
 	virke(float prisPerMeter, string dimension);
 	virke(const virke &origin);
 	virtual ~virke();
-	string tostring();
+	string tostring()const;
 	virtual string toStringSpec();
 	void setPrisPerMeter(float prisPerMeter);
 	void setDimension(string dimension);

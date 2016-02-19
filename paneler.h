@@ -10,16 +10,22 @@
  *
  * Created on den 17 februari 2016, 13:16
  */
+
+#ifndef PANELER_H
+#define PANELER_H
 #include"virke.h"
-#ifndef RAMAR_H
-#define RAMAR_H
-class ramar: public virke
+class paneler: public virke
 {
 	private:
 		string Profile;
-		bool Grundmalad();
+		bool painted();
 		
 	public:
+		//ramar();
+		paneler(float prisPerMeter, string dimension, string Profile, bool painted);panelerpaneler(){};
+		string toStringSpec();
+		
+		
 };
 
 
