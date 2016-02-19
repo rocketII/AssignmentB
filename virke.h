@@ -10,9 +10,10 @@
  *Base class for reglar and ramar
  * Created on den 17 februari 2016, 13:16
  */
-#include <string>
+
 #ifndef VIRKE_H
 #define VIRKE_H
+#include <string>
 using namespace std;
 class virke
 {
@@ -22,14 +23,16 @@ private:
 	
 	
 public:
-	virke();
+	//construct
 	virke(float prisPerMeter, string dimension);
+	//copy construct
 	virke(const virke &origin);
+	//destruct virtual
 	virtual ~virke();
 	string tostring()const;
-	virtual string toStringSpec();
-	void setPrisPerMeter(float prisPerMeter);
-	void setDimension(string dimension);
+	virtual string toStringSpec()=0;
+	virtual void setPrisPerMeter(float prisPerMeter)=0;
+	virtual void setDimension(string dimension)=0;
 	
 };
 

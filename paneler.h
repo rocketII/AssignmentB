@@ -21,9 +21,18 @@ class paneler: public virke
 		bool painted();
 		
 	public:
-		//ramar();
-		paneler(float prisPerMeter, string dimension, string Profile, bool painted);panelerpaneler(){};
+		//construct
+		paneler(float prisPerMeter, string dimension, string Profile, bool painted);
+		//destruct
+		~paneler(){};
+		// 2 cpp file 
+		//get all data to std::string
 		string toStringSpec();
+		//get and set functions
+		bool setProfile(string profile);
+		bool setPainted(bool painted);
+		string getProfile();
+		bool getPainted();
 		
 		
 };

@@ -35,12 +35,13 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
+	${OBJECTDIR}/TestVirkeManager.o \
 	${OBJECTDIR}/main.o \
-	${OBJECTDIR}/manager.o \
 	${OBJECTDIR}/menu.o \
-	${OBJECTDIR}/ramar..o \
+	${OBJECTDIR}/paneler.o \
 	${OBJECTDIR}/reglar.o \
-	${OBJECTDIR}/virke.o
+	${OBJECTDIR}/virke.o \
+	${OBJECTDIR}/virkemanager.o
 
 
 # C Compiler Flags
@@ -67,25 +68,25 @@ ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/assignmentb: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
 	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/assignmentb ${OBJECTFILES} ${LDLIBSOPTIONS}
 
+${OBJECTDIR}/TestVirkeManager.o: TestVirkeManager.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/TestVirkeManager.o TestVirkeManager.cpp
+
 ${OBJECTDIR}/main.o: main.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/main.o main.cpp
-
-${OBJECTDIR}/manager.o: manager.cpp 
-	${MKDIR} -p ${OBJECTDIR}
-	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/manager.o manager.cpp
 
 ${OBJECTDIR}/menu.o: menu.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/menu.o menu.cpp
 
-${OBJECTDIR}/ramar..o: ramar..cpp 
+${OBJECTDIR}/paneler.o: paneler.cpp 
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
-	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/ramar..o ramar..cpp
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/paneler.o paneler.cpp
 
 ${OBJECTDIR}/reglar.o: reglar.cpp 
 	${MKDIR} -p ${OBJECTDIR}
@@ -96,6 +97,11 @@ ${OBJECTDIR}/virke.o: virke.cpp
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/virke.o virke.cpp
+
+${OBJECTDIR}/virkemanager.o: virkemanager.cpp 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.cc) -g -std=c++11 -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/virkemanager.o virkemanager.cpp
 
 # Subprojects
 .build-subprojects:

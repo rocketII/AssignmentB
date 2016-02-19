@@ -17,6 +17,7 @@
 class menu
 {
 private:
+	string cache;
 public:
 	bool menuInit();
 	bool addVirke();
