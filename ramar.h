@@ -10,10 +10,17 @@
  *
  * Created on den 17 februari 2016, 13:16
  */
-
+#include"virke.h"
 #ifndef RAMAR_H
 #define RAMAR_H
-
+class ramar: public virke
+{
+	private:
+		string Profile;
+		bool Grundmalad();
+		
+	public:
+};
 
 
 #endif /* RAMAR_H */

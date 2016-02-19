@@ -13,7 +13,24 @@
 
 #ifndef MENU_H
 #define MENU_H
-
+#include "manager.h"
+class menu
+{
+private:
+public:
+	bool menuInit();
+	bool addVirke();
+	bool addRamar();
+	bool addPaneler();
+	bool removeVirke(string Dimension, float price);
+	bool AllDataVirke();
+	bool AllDataRamar();
+	bool AllDataPaneler();
+	bool NumberOfVirke();
+	bool NumberOfRamar();
+	bool NumberOfPaneler();
+	
+};
 
 
 #endif /* MENU_H */

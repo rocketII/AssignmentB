@@ -13,11 +13,13 @@
 
 #ifndef REGLAR_H
 #define REGLAR_H
+#include"virke.h"
 //Är basklass
 //ska ha abstraktion och virtuealitet.
-class reglar
+class reglar : public virke
 {
 private:
+	string klassificering;
 public:
 	
 };
