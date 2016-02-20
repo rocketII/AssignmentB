@@ -22,7 +22,7 @@ class Virkemanager
 private:
 	virke **ptr2ArrayWithVirkePtr;
 	int counterVirke, virkeArrayCapacity;
-	string virkeDataTmpCache;
+	//string virkeDataTmpCache;
 public:
 	//construct
         Virkemanager();
@@ -40,9 +40,9 @@ public:
 	bool changePaintedStatus(string dimension, string profile);
 	
 	
-	string AllDataVirke();
-	string AllDataRamar();
-	string AllDataPaneler();
+	string& AllDataVirke();
+	string& AllDataReglar();
+	string& AllDataPaneler();
 	bool removeVirke(float price, string dimension);
 	
 	//numberOf used with changing string array holder of virke data.

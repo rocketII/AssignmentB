@@ -35,6 +35,8 @@ public:
 	virtual string toStringSpec()const=0;
 	void setPrisPerMeter(float prisPerMeter);
 	void setDimension(string dimension);
+	float getPrisPerMeter()const;
+	string getDimension()const;
 	
 };
 

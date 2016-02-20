@@ -54,3 +54,11 @@ void virke::setDimension(string dimension)
 {
     this->dimension=dimension;
 }
+float virke::getPrisPerMeter()const
+{
+	return this->prisPerMeter;
+}
+string virke::getDimension()const
+{
+	return this->dimension;
+}

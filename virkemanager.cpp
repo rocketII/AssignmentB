@@ -4,22 +4,22 @@
  * and open the template in the editor.
  */
 #include<typeinfo>
-
 #include "virkemanager.h"
 using namespace std;
 
 //construct
 Virkemanager::Virkemanager()
 {
-    this->ptr2ArrayWithVirkePtr= new virke*[2];
     this->counterVirke=0;
-    this->virkeArrayCapacity=0;
+    this->virkeArrayCapacity=2;
     this->virkeDataTmpCache="currently empty";
+    this->ptr2ArrayWithVirkePtr= new virke*[this->virkeArrayCapacity];
 }
 	
 	//destruct
 Virkemanager::~Virkemanager()
 {
+	//maybe we should add some more controls so we don't try to free memory we don't own?
     for(int i=0; i< this->counterVirke; i++)
     {
 	delete this->ptr2ArrayWithVirkePtr[i];
@@ -80,43 +80,147 @@ Virkemanager& Virkemanager::operator=(const Virkemanager &origin)
 }
 bool Virkemanager::newPanel(string dimension, float prisPerMeter, string profile, bool painted)
 {
-    if(this->counterVirke == this->virkeArrayCapacity)
-    {
-        virke **tmp = new virke *[this->virkeArrayCapacity];
-        
-        for(int i=0; i < this->counterVirke; i++)
+	bool flag = false;
+	if(this->counterVirke < this->virkeArrayCapacity)
 	{
-            tmp[i] = this->ptr2ArrayWithVirkePtr[i];
+		this->ptr2ArrayWithVirkePtr[this->counterVirke+1]= new paneler( dimension, prisPerMeter, profile, painted);
+		flag=true;
+		this->counterVirke++;
 	}
-        
-        for(int i=0; i < this->counterVirke; i++)
+	else
 	{
-            delete this->ptr2ArrayWithVirkePtr[i];
+		this->virkeArrayCapacity += 3;
+		//creating tmp **ptr to array of ptr objs
+		virke **tmp = new virke *[this->virkeArrayCapacity];
+			//filling tmp with ptrs to objs
+		for(int i=0; i < this->counterVirke; i++)
+		{
+			tmp[i] = this->ptr2ArrayWithVirkePtr[i];
+		}
+		//delete this ptr2ArrayWith...Ptr
+		for(int i=0; i < this->counterVirke; i++)
+		{
+			delete this->ptr2ArrayWithVirkePtr[i];
+		}
+		delete [] this->ptr2ArrayWithVirkePtr;
+		//create bigger ptr2Array..,Ptr
+		this->ptr2ArrayWithVirkePtr = new paneler *[this->virkeArrayCapacity];
+		//filling this with tmp data
+		for(int i=0; i < this->counterVirke; i++)
+		{
+			this->ptr2ArrayWithVirkePtr[i] = tmp[i];
+		}
+		//redirect tmp to null or nullptr or nullptr_t
+		tmp=NULL;
+		//now add new obj
+		this->ptr2ArrayWithVirkePtr[this->counterVirke+1]= new paneler( dimension, prisPerMeter, profile, painted);
+		flag=true;
+		this->counterVirke++;
 	}
-	delete [] this->ptr2ArrayWithVirkePtr;
-    }
-    this->ptr2ArrayWithVirkePtr[this->counterVirke+1]
+	return flag;
 }
 bool Virkemanager::newRegel(string dimension, float prisPerMeter, string klassificering)
 {
-    
+	bool flag = false;
+	if(this->counterVirke < this->virkeArrayCapacity)
+	{
+		this->ptr2ArrayWithVirkePtr[this->counterVirke+1]= new reglar( dimension,prisPerMeter, klassificering);
+		flag=true;
+		this->counterVirke++;
+	}
+	else
+	{
+		this->virkeArrayCapacity += 3;
+			//creating tmp **ptr to array of ptr objs
+		virke **tmp = new virke *[this->virkeArrayCapacity];
+			//filling tmp with ptrs to objs
+		for(int i=0; i < this->counterVirke; i++)
+		{
+		    tmp[i] = this->ptr2ArrayWithVirkePtr[i];
+		}
+			//delete this ptr2ArrayWith...Ptr
+		for(int i=0; i < this->counterVirke; i++)
+		{
+			delete this->ptr2ArrayWithVirkePtr[i];
+		}
+		delete [] this->ptr2ArrayWithVirkePtr;
+			//create bigger ptr2Array..,Ptr
+		this->ptr2ArrayWithVirkePtr = new reglar *[this->virkeArrayCapacity];
+			//filling this with tmp data
+		for(int i=0; i < this->counterVirke; i++)
+		{
+			this->ptr2ArrayWithVirkePtr[i] = tmp[i];
+		}
+			//redirect tmp to null or nullptr or nullptr_t
+		tmp=NULL;
+			//now add new obj
+		this->ptr2ArrayWithVirkePtr[this->counterVirke+1]= new reglar( dimension, prisPerMeter, klassificering);
+		flag=true;
+		this->counterVirke++;
+	}
+	return flag;
 }
 bool Virkemanager::changePaintedStatus(string dimension, string profile)
 {
+	bool flag=false;
+	//go through the array and check for paneler type and then look for matching dimenson and profile
+	//if match found then change bool to oposite
+	for(int i = 0; i < this->counterVirke; i++)
+	{
+		if(typeid(*this->ptr2ArrayWithVirkePtr[i]) == typeid(paneler))
+		{
+			if(this->ptr2ArrayWithVirkePtr[i]-> == dimension && this->ptr2ArrayWithVirkePtr[i]-> == profile)
+			{
+				//abusing dynamic_cast in order to access paneler member functions.
+				dynamic_cast<paneler*>(this->ptr2ArrayWithVirkePtr[i])->setPainted(!(dynamic_cast<paneler*>(this->ptr2ArrayWithVirkePtr[i])->getPainted()));
+				flag = true;
+			}
+		}
+	}
+	return flag;
             
 }
-		
-string Virkemanager::AllDataVirke()
+		//Walkthrough the array with obj ptrs and get all the data as string
+string& Virkemanager::AllDataVirke()
 {
-    
+	//stringstream ss, kk, ll;
+	string tmpCache= new string[this->counterVirke];
+	for(int i; i < this->counterVirke; i++)
+	{
+		tmpCache[i] << this->ptr2ArrayWithVirkePtr[i]->tostring() << "\n" << this->ptr2ArrayWithVirkePtr[i]->toStringSpec() << "\n";
+	}
+	return &tmpCache;
 }
-string Virkemanager::AllDataRamar()
+	//Walkthrough the array with obj ptrs and get all the data as string. But now we only take Ramar. 
+string& Virkemanager::AllDataReglar()
 {
-    
+	string tmpCache= new string[this->numberOfReglar()];
+	for(int i; i < this->counterVirke; i++)
+	{
+		if(typeid(*this->ptr2ArrayWithVirkePtr[i])== typeid(reglar))
+		{
+			for(int i; i < this->counterVirke; i++)
+			{
+				tmpCache[i] << this->ptr2ArrayWithVirkePtr[i]->tostring() << "\n" << this->ptr2ArrayWithVirkePtr[i]->toStringSpec() << "\n";
+			}
+		}
+	}
+	return &tmpCache;
 }
-string Virkemanager::AllDataPaneler()
+string& Virkemanager::AllDataPaneler()
 {
-    
+	string tmpCache= new string[this->numberOfPaneler()];
+	for(int i; i < this->counterVirke; i++)
+	{
+		if(typeid(*this->ptr2ArrayWithVirkePtr[i])== typeid(paneler))
+		{
+			for(int i; i < this->counterVirke; i++)
+			{
+				tmpCache[i] << this->ptr2ArrayWithVirkePtr[i]->tostring() << "\n" << this->ptr2ArrayWithVirkePtr[i]->toStringSpec() << "\n";
+			}
+		}
+	}
+	return &tmpCache;
 }        
 bool Virkemanager::removeVirke(float price, string dimension)
 {
