@@ -13,7 +13,7 @@
 
 #ifndef TESTVIRKEMANAGER_H
 #define TESTVIRKEMANAGER_H
-void tryVirkeManager();
+bool testSuitVirkeManager();
 
 
 #endif /* TESTVIRKEMANAGER_H */

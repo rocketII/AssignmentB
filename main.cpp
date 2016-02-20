@@ -33,6 +33,9 @@ void NumberOfPaneler();
 
 int main(int argc, char** argv)
 {
+	//lets test that virkemanager works when it comes down to: constructing, copyconstruct, assignment operator, destruction.
+	//And no memleaks happens.
+	testSuitVirkeManager();
 	bool flag = false;
 	Virkemanager butik;
 	do
@@ -47,7 +50,6 @@ bool menuInit(Virkemanager &butik)
 {
 	bool flag = false;
 	string choice;
-	void menuInit();
 	cout << "A. addVirke\n B. addRamar\n C. addPaneler\nD. removeVirke  \nE. AllDataVirke \nF.AllDataRamar \nG. AllDataPaneler \nH. NumberOfVirke \nI. NumberOfRamar \nJ.NumberOfPaneler" << endl;
 	cout << "Just pressing enter Exit this program"<<endl;
 	switch(choice)
