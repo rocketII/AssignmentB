@@ -36,6 +36,7 @@
       <itemPath>Makefile</itemPath>
     </logicalFolder>
     <itemPath>infoForNoobs.txt</itemPath>
+    <itemPath>progress.md</itemPath>
   </logicalFolder>
   <sourceRootList>
     <Elem>.</Elem>
@@ -64,6 +65,8 @@
       <item path="paneler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="paneler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="progress.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="reglar.cpp" ex="false" tool="1" flavor2="0">
       </item>
@@ -110,6 +113,8 @@
       <item path="paneler.cpp" ex="false" tool="1" flavor2="0">
       </item>
       <item path="paneler.h" ex="false" tool="3" flavor2="0">
+      </item>
+      <item path="progress.md" ex="false" tool="3" flavor2="0">
       </item>
       <item path="reglar.cpp" ex="false" tool="1" flavor2="0">
       </item>

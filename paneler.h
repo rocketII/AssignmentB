@@ -18,7 +18,7 @@ class paneler: public virke
 {
 	private:
 		string Profile;
-		bool painted();
+		bool painted;
 		
 	public:
 		//construct
@@ -26,15 +26,17 @@ class paneler: public virke
 		//destruct
 		~paneler(){};
 		//copy construct
-		//assignment op
+                paneler(const paneler &origin);
+		//assignment op the return is used for the followin statements to work. a=b=c (without the return reference it wouldn't work)
+                paneler& operator=(const paneler &origin);
 		// 2 cpp file 
 		//get all data to std::string
-		string toStringSpec();
+		string toStringSpec()const;
 		//get and set functions
 		bool setProfile(string profile);
 		bool setPainted(bool painted);
-		string getProfile();
-		bool getPainted();
+		string getProfile()const;
+		bool getPainted()const;
 		
 		
 };

@@ -19,17 +19,17 @@ using namespace std;
 /*
  * 
  */
-void menuInit();
-void addVirke();
-void addRamar();
-void addPaneler();
+void menuInit(Virkemanager &butik);
+void addVirke(Virkemanager &butik);
+void addRamar(Virkemanager &butik);
+void addPaneler(Virkemanager &butik);
 void removeVirke(string Dimension, float price);
-void AllDataVirke();
-void AllDataRamar();
-void AllDataPaneler();
-void NumberOfVirke();
-void NumberOfRamar();
-void NumberOfPaneler();
+void AllDataVirke(Virkemanager &butik);
+void AllDataRamar(Virkemanager &butik);
+void AllDataPaneler(Virkemanager &butik);
+void NumberOfVirke(Virkemanager &butik);
+void NumberOfRamar(Virkemanager &butik);
+void NumberOfPaneler(Virkemanager &butik);
 
 int main(int argc, char** argv)
 {
@@ -51,7 +51,7 @@ bool menuInit(Virkemanager &butik)
 	bool flag = false;
 	string choice;
 	cout << "A. addVirke\n B. addRamar\n C. addPaneler\nD. removeVirke  \nE. AllDataVirke \nF.AllDataRamar \nG. AllDataPaneler \nH. NumberOfVirke \nI. NumberOfRamar \nJ.NumberOfPaneler" << endl;
-	cout << "Just pressing enter Exit this program"<<endl;
+	cout << "Just pressing enter Exit this program\nChoice:"<<endl;
 	switch(choice)
 	{
 	case 'A':
@@ -79,43 +79,44 @@ bool menuInit(Virkemanager &butik)
 	}
 	return flag;
 }
-void addVirke()
+void addVirke(Virkemanager &butik)
+{
+    
+	
+}
+void addRamar(Virkemanager &butik)
 {
 	
 }
-void addRamar()
+void addPaneler(Virkemanager &butik)
 {
 	
 }
-void addPaneler()
+void removeVirke(Virkemanager &butik)
 {
 	
 }
-void removeVirke(string Dimension, float price)
+void AllDataVirke(Virkemanager &butik)
 {
 	
 }
-void AllDataVirke()
+void AllDataRamar(Virkemanager &butik)
 {
 	
 }
-void AllDataRamar()
+void AllDataPaneler(Virkemanager &butik)
 {
 	
 }
-void AllDataPaneler()
+void NumberOfVirke(Virkemanager &butik)
 {
 	
 }
-void NumberOfVirke()
+void NumberOfRamar(Virkemanager &butik)
 {
 	
 }
-void NumberOfRamar()
-{
-	
-}
-void NumberOfPaneler()
+void NumberOfPaneler(Virkemanager &butik)
 {
 	
 }

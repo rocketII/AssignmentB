@@ -24,10 +24,12 @@ public:
 	reglar(float prisPerMeter, string dimension, string klassificering);
 	//in cpp reglar(float prisPerMeter, string dimension, string klassificering):virke(prisPerMeter,dimension){}
 	//copy construct
+        reglar(const reglar &origin);
         //assignment op
-	string toStringSpec();
+        reglar& operator=(const reglar &origin);
+	string toStringSpec()const;
 	//get and set functions
-	bool setProfile(string klassificering );
+	bool setKlassificering(string klassificering );
 	string getKlassificering();
 	
 };
