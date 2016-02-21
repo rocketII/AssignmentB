@@ -12,13 +12,15 @@
  */
 
 #include <cstdlib>
+#include <iostream>
 #include"TestVirkeManager.h"
 #include "virkemanager.h"
+
 using namespace std;
 
 /*
  * 
- */
+ *
 void menuInit(Virkemanager &butik);
 void addVirke(Virkemanager &butik);
 void addRamar(Virkemanager &butik);
@@ -30,49 +32,83 @@ void AllDataPaneler(Virkemanager &butik);
 void NumberOfVirke(Virkemanager &butik);
 void NumberOfRamar(Virkemanager &butik);
 void NumberOfPaneler(Virkemanager &butik);
-
+bool basePaintedChoice(string choice);
+*/
 int main(int argc, char** argv)
 {
 	//lets test that virkemanager works when it comes down to: constructing, copyconstruct, assignment operator, destruction.
 	//And no memleaks happens.
+	cout << "gonna try testing the mechanics..." << endl;
 	testSuitVirkeManager();
-	bool flag = false;
+	/*bool flag = false;
 	Virkemanager butik;
 	do
 	{
 		menuInit(butik);
 	}
 	while(!flag);
-
+	* 
+	*/
 	return 0;
 }
+/*
 bool menuInit(Virkemanager &butik)
 {
 	bool flag = false;
+	string dimension;
+	float prisPerMeter;
+	string profil;
 	string choice;
-	cout << "A. addVirke\n B. addRamar\n C. addPaneler\nD. removeVirke  \nE. AllDataVirke \nF.AllDataRamar \nG. AllDataPaneler \nH. NumberOfVirke \nI. NumberOfRamar \nJ.NumberOfPaneler" << endl;
+	string klassificering = "default value";
+	std::cout << "A. addVirke\n B. addReglar\n C. addPaneler\nD. removeVirke  \nE. AllDataVirke \nF.AllDataRamar \nG. AllDataPaneler \nH. NumberOfVirke \nI. NumberOfRamar \nJ.NumberOfPaneler" << endl;
 	cout << "Just pressing enter Exit this program\nChoice:"<<endl;
 	switch(choice)
 	{
 	case 'A':
+		
 		break;
 	case 'B':
+		
+		cout << "Ange Dimension för Regel: ";
+		cin >> dimension;
+		cin.ignore();
+		cout << "Ange Pris per meter för Regel: ";
+		cin >> prisPerMeter ;
+		cin.ignore();
+		cout << "Vad för klassificering gäller för Regel: ";
+		cin >> klassificering;
+		cin.ignore();
+		butik.newRegel(dimension, prisPerMeter, klassificering);
 		break;
-		case 'C':
+	case 'C':
+		
+		cout << "Ange Dimension för Regel: ";
+		cin >> dimension;
+		cin.ignore();
+		cout << "Ange Pris per meter för Regel: ";
+		cin >> prisPerMeter ;
+		cin.ignore();
+		cout << "Vad för profil gäller för Regel: ";
+		cin >> profil;
+		cin.ignore();
+		cout << "Är denna Regel grundmålad?(J eller N): ";
+		cin >> choice;
+		cin.ignore();
+		butik.newPanel(dimension, prisPerMeter,profil, basePaintedChoice(choice));
 		break;
-		case 'D':
+	case 'D':
 		break;
-		case 'E':
+	case 'E':
 		break;
-		case 'F':
+	case 'F':
 		break;
-		case 'G':
+	case 'G':
 		break;
-		case 'H':
+	case 'H':
 		break;
-		case 'I':
+	case 'I':
 		break;
-		case 'J ':
+	case 'J':
 		break;
 	default:
 		break;
@@ -120,4 +156,13 @@ void NumberOfPaneler(Virkemanager &butik)
 {
 	
 }
-
+bool basePaintedChoice(string choice)
+{
+	bool flag = false;
+	if(choice[0] == 'J' || choice[0] == 'j')
+	{
+		flag = true;
+	}
+	return flag;
+}
+*/

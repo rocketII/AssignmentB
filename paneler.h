@@ -24,7 +24,7 @@ class paneler: public virke
 		//construct
 		paneler(float prisPerMeter, string dimension, string Profile, bool painted);
 		//destruct
-		~paneler(){};
+		~paneler();
 		//copy construct
                 paneler(const paneler &origin);
 		//assignment op the return is used for the followin statements to work. a=b=c (without the return reference it wouldn't work)

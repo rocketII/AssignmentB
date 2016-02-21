@@ -30,7 +30,7 @@ public:
 	string toStringSpec()const;
 	//get and set functions
 	bool setKlassificering(string klassificering );
-	string getKlassificering();
+	string getKlassificering()const;
 	
 };
 
