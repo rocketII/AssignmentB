@@ -42,16 +42,16 @@ public:
 	bool changePaintedStatus(string dimension, string profile);
 	
 	
-	string& AllDataVirke();
-	string& AllDataReglar();
-	string& AllDataPaneler();
+	string& AllDataVirke()const;
+	string& AllDataReglar()const;
+	string& AllDataPaneler()const;
 	bool removeVirke(float price, string dimension);
 	
 	//numberOf used with changing string array holder of virke data.
 	int getcounterVirke()const;
 	int getvirkeArrayCapacity()const;
-	int numberOfReglar();
-	int numberOfPaneler();
+	int getNumberOfReglar()const;
+	int getNumberOfPaneler()const;
 	
 };
 

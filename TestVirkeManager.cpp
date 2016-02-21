@@ -42,7 +42,7 @@ bool testSuitVirkeManager()
 	{
 		cout << i <<": "<< results[i]<<endl;
 	}//*/
-	/*
+	///*
 	//test = operator for class
 	cout << "Now I'm going to try the = operator" << endl;
 	jacksTimbers = myTimbers;
@@ -62,7 +62,11 @@ bool testSuitVirkeManager()
 	cout<<"sarasTimbers have "<< sarasTimbers.getcounterVirke() <<" obj ptrs and the array can hold a total of " <<sarasTimbers.getvirkeArrayCapacity()<<" units"<<endl;
 	cout <<" Sara has the following objects stored: " << sarasTimbers.AllDataVirke() << endl;
 	cout <<" jack has the following objects stored: " << jacksTimbers.AllDataVirke() << endl;
-	*/
+	//*/
+	//We can try expanding the ptr array
+	cout << "testing expanding mytimbers array."<<endl;
+	myTimbers.newRegel("450x23", 677.00, "K14");
+	myTimbers.newRegel("450x24", 677.00, "K24");
 	flag = true;
 	return flag;
 	

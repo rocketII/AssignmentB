@@ -21,141 +21,134 @@ using namespace std;
 /*
  * 
  *
-void menuInit(Virkemanager &butik);
-void addVirke(Virkemanager &butik);
-void addRamar(Virkemanager &butik);
-void addPaneler(Virkemanager &butik);
-void removeVirke(string Dimension, float price);
-void AllDataVirke(Virkemanager &butik);
-void AllDataRamar(Virkemanager &butik);
-void AllDataPaneler(Virkemanager &butik);
-void NumberOfVirke(Virkemanager &butik);
-void NumberOfRamar(Virkemanager &butik);
-void NumberOfPaneler(Virkemanager &butik);
-bool basePaintedChoice(string choice);
 */
+void AllDataVirke(Virkemanager &butik);
+void AllDataReglar(Virkemanager &butik);
+void AllDataPaneler(Virkemanager &butik);
+
 int main(int argc, char** argv)
 {
 	//lets test that virkemanager works when it comes down to: constructing, copyconstruct, assignment operator, destruction.
 	//And no memleaks happens.
 	cout << "gonna try testing the mechanics..." << endl;
 	testSuitVirkeManager();
-	/*bool flag = false;
+	//*/
+	cout << "Starting menu\n Welcome to Timber management 2016 <command prompt ver.> "<<endl;
+	bool flag = false;
 	Virkemanager butik;
 	do
 	{
 		menuInit(butik);
 	}
 	while(!flag);
-	* 
-	*/
+	 
+	//*/
 	return 0;
 }
-/*
+//*
 bool menuInit(Virkemanager &butik)
 {
+	/*
+	 * 
+	A. bool newPanel(string dimension, float prisPerMeter, string profile, bool painted)
+	B. bool newRegel(string dimension, float prisPerMeter, string klassificering)
+	C. bool changePaintedStatus(string dimension, string profile)
+	D. string& AllDataVirke()
+	E.string& AllDataReglar()
+	F.string& AllDataPaneler()
+	G.bool removeVirke(float price, string dimension)
+	H.int getcounterVirke()
+	(int getvirkeArrayCapacity())
+	I.int getNumberOfReglar()
+	J.int getNumberOfPaneler()
+	 
+	
+	*/
+	
 	bool flag = false;
 	string dimension;
 	float prisPerMeter;
 	string profil;
 	string choice;
 	string klassificering = "default value";
-	std::cout << "A. addVirke\n B. addReglar\n C. addPaneler\nD. removeVirke  \nE. AllDataVirke \nF.AllDataRamar \nG. AllDataPaneler \nH. NumberOfVirke \nI. NumberOfRamar \nJ.NumberOfPaneler" << endl;
+	std::cout << "A. Add Panel\nB. Add Regel\nC. Change basepainted with given dimension and profile\nD. Print all data\nE. print all data of type Regler\nF. print all data of type paneler\nG. Remove Timber of given price and dimension\nH. Get total number of timber\nI. Get number of Regler\nJ. Get number of Paneler.\n" << endl;
 	cout << "Just pressing enter Exit this program\nChoice:"<<endl;
 	switch(choice)
 	{
 	case 'A':
-		
+		dimension="10x10"; 
+		prisPerMeter=10.00;
+		profil="Bas";
+		cout << "Dimension: ";
+		cin >> dimension;
+		cin.ignore();
+		cout << "Price/meter: ";
+		cin >> prisPerMeter;
+		cin.ignore();
+		cout << "Profile: ";
+		cin >> profil;
+		cin.ignore();
+		cout << "Are the panel base painted?: ";
+		cin >> choice;
+		cin.ignore();
+		butik.newPanel(dimension, prisPerMeter,profil, basePaintedChoice(choice));
 		break;
 	case 'B':
 		
-		cout << "Ange Dimension för Regel: ";
+		cout << "Dimension: ";
 		cin >> dimension;
 		cin.ignore();
-		cout << "Ange Pris per meter för Regel: ";
+		cout << "price/meter: ";
 		cin >> prisPerMeter ;
 		cin.ignore();
-		cout << "Vad för klassificering gäller för Regel: ";
+		cout << "clasification: ";
 		cin >> klassificering;
 		cin.ignore();
 		butik.newRegel(dimension, prisPerMeter, klassificering);
 		break;
 	case 'C':
-		
-		cout << "Ange Dimension för Regel: ";
+		cout << "Dimension: ";
 		cin >> dimension;
 		cin.ignore();
-		cout << "Ange Pris per meter för Regel: ";
-		cin >> prisPerMeter ;
-		cin.ignore();
-		cout << "Vad för profil gäller för Regel: ";
+		cout << "Profile: ";
 		cin >> profil;
 		cin.ignore();
-		cout << "Är denna Regel grundmålad?(J eller N): ";
-		cin >> choice;
-		cin.ignore();
-		butik.newPanel(dimension, prisPerMeter,profil, basePaintedChoice(choice));
+		butik.changePaintedStatus(dimension, profil);
 		break;
 	case 'D':
+		AllDataVirke(butik);
 		break;
 	case 'E':
+		AllDataReglar(butik);
 		break;
 	case 'F':
+		AllDataPaneler(butik);
 		break;
 	case 'G':
+		cout << "Price/meter: ";
+		cin >> prisPerMeter;
+		cin.ignore();
+		cout << "Dimension: ";
+		cin >> dimension;
+		cin.ignore();
+		butik.removeVirke(prisPerMeter, dimension);
 		break;
 	case 'H':
+		cout << "You got " << butik.getcounterVirke() <<" object in store"<<endl;
 		break;
 	case 'I':
+		cout << "You got " << butik.getNumberOfReglar() <<" object in store of type reglar"<<endl;
 		break;
 	case 'J':
+		cout << "You got " << butik.getNumberOfPaneler() <<" object in store of type paneler"<<endl;
 		break;
 	default:
+		cout << "you or someting typed out of bound. Chose item from menu in capital letter" << endl;
 		break;
 	}
 	return flag;
 }
-void addVirke(Virkemanager &butik)
-{
-    
-	
-}
-void addRamar(Virkemanager &butik)
-{
-	
-}
-void addPaneler(Virkemanager &butik)
-{
-	
-}
-void removeVirke(Virkemanager &butik)
-{
-	
-}
-void AllDataVirke(Virkemanager &butik)
-{
-	
-}
-void AllDataRamar(Virkemanager &butik)
-{
-	
-}
-void AllDataPaneler(Virkemanager &butik)
-{
-	
-}
-void NumberOfVirke(Virkemanager &butik)
-{
-	
-}
-void NumberOfRamar(Virkemanager &butik)
-{
-	
-}
-void NumberOfPaneler(Virkemanager &butik)
-{
-	
-}
+
 bool basePaintedChoice(string choice)
 {
 	bool flag = false;
@@ -165,4 +158,31 @@ bool basePaintedChoice(string choice)
 	}
 	return flag;
 }
-*/
+void AllDataVirke(Virkemanager &butik)
+{
+	string *printRes= new string[butik.getcounterVirke()];
+	printRes=butik.AllDataVirke();
+	for(int i= 0; i < butik.getcounterVirke(); i++)
+	{
+		cout << printRes[i];
+	}
+}
+void AllDataReglar(Virkemanager &butik)
+{
+	string *printRes= new string[butik.getNumberOfReglar()];
+	printRes=butik.AllDataVirke();
+	for(int i= 0; i < butik.getNumberOfReglar(); i++)
+	{
+		cout << printRes[i];
+	}
+}
+void AllDataPaneler(Virkemanager &butik)
+{
+	string *printRes= new string[butik.getNumberOfPaneler()];
+	printRes=butik.AllDataVirke();
+	for(int i= 0; i < butik.getNumberOfPaneler(); i++)
+	{
+		cout << printRes[i];
+	}
+}
+//*/

@@ -25,7 +25,7 @@ public:
 	//in cpp reglar(float prisPerMeter, string dimension, string klassificering):virke(prisPerMeter,dimension){}
 	//copy construct
         reglar(const reglar &origin);
-        //assignment op
+        //assignment op reglar& so we can do asignment chan. for example a=b=c;
         reglar& operator=(const reglar &origin);
 	string toStringSpec()const;
 	//get and set functions
