@@ -1,2 +1,2 @@
 # AssignmentB
-abstract virtual inheritence, timber management in c++
+abstract virtual inheritence, Sport management in c++
