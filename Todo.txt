@@ -1,0 +1,104 @@
+----------------------------[ Todo ]-------------------------------------------
+1. make motionär sub class *                                1
+2. test motionär sub class                                  1
+3. make proffs sub class **                                 1
+4. test proffs sub class                                    1
+5. make motionär bas abstrskt class ***                     1
+6. test motionär bas abstrakt class                         1
+7. make register class****                                  0
+8. test register class with test.cpp                        0
+8.1 valgrind check                                          0
+9. make menu                                                0
+10. test menu                                               0
+10.1 valgrind check                                         0
+11. send to teacher                                         0
+12. wait...                                                 0
+  12.1 change code                                          0
+  12.2 done!                                                0
+///////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+///////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+*   more details
+vars: namn kön ålder
+
+  make & test order 1
+order                                                               tested?(0/1)
+2 toStringSpecific                                                      1
+1 get/set                                                               1
+-------------------------------------------------------------------------------
+///////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+**  more details
+namn, kön, klubb och antal säsonger som professionell.
+  make & test order 1
+order                                                               tested?(0/1)
+2 toStringSpecific                                                      1
+1 get/set                                                               1
+-------------------------------------------------------------------------------
+///////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+***  more details
+namn kön.
+  make & test order 1
+order                                                               tested?(0/1)
+2 toString                                                              1
+1 get/set                                                               1
+-------------------------------------------------------------------------------
+///////////////////////////////////////////////////////////////////////////////
+-------------------------------------------------------------------------------
+****   more details
+**ptr
+string* array
+  make & test order 1
+order                                                               tested?(0/1)
+1  construct                                                            1
+1  destruct                                                             1
+2  Lägga till en motionär                                               1
+
+2  Lägga till en professionell deltagare                                1
+
+2. copyconstructor                                                       1
+
+2. operator=                                                             1
+
+2  Erhålla antalet inlagda tävlingsdeltagare (för att kunna dimensionera 1
+  arrayen ovan)
+
+2 Erhålla antalet inlagda professionella deltagare (för att kunna        1
+  dimensionera arrayen ovan)
+
+2 Erhålla antalet inlagda motionärer (för att kunna dimensionera arrayen 1
+  ovan)
+
+
+4  Fylla en array av typen string med innehåll från samtliga            1
+  tävlingsdeltagare
+
+
+
+4 Fylla en array av typen string med innehåll från endast professionella 1
+  deltagare
+
+
+4  Fylla en array av typen string med innehåll från endast motionärer    1
+
+
+
+6  Ta bort en tävlingsdeltagare givet namnet (namnet betraktas som unikt) 1
+
+5  Ändra antal säsonger som professionell för en given professionell      1
+   deltagare
+7. operator<                                                              0
+7  Sortera alla tävlingsdeltagare baserat på namnet. Här används med      0
+  fördel en <-operator i arvshierarkin.
+
+//////////////////////////////////////////////////////////////////////////
+Buggs:
+   * när man tar bort alla element av motionär typ men har en annan typ så uppstår
+     access violation pga läsning av oinitilicerad data på plats 0.
+   lösning: Att man kör frågor.
+
+valgring --tool=memcheck
+
+

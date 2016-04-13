@@ -1,0 +1,451 @@
+/opt/clion-1.2.4/bin/cmake/bin/cmake --build /root/.CLion12/system/cmake/generated/367d6519/367d6519/Debug0 --target AssignmentB -- -j 4
+[ 25%] Building CXX object CMakeFiles/AssignmentB.dir/professionell.cpp.o
+[ 50%] Building CXX object CMakeFiles/AssignmentB.dir/main.cpp.o
+[ 75%] Building CXX object CMakeFiles/AssignmentB.dir/motionar.cpp.o
+In file included from /root/IDEstorage/DV1497/AssignmentB/professionell.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:5: error: stray ‘\303’ in program
+     string namn, kön, klubb;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: error: stray ‘\303’ in program
+     professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons);
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:5: error: stray ‘\303’ in program
+     const string getKön() const ; //
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\303’ in program
+     void setKön(const string kön) ;//
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:17:1: error: stray ‘\303’ in program
+ const string professionell::getKön() const
+ ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:17:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:19:5: error: stray ‘\303’ in program
+     return this->kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:19:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:22:1: error: stray ‘\303’ in program
+ void professionell::setKön(const string kön)
+ ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:22:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:22:1: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:22:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:24:5: error: stray ‘\303’ in program
+     this->kön = kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:24:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:24:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:24:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\303’ in program
+ professionell::professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons) : namn(namn), kön(kön), klubb(klubb),  nrOfActiveSeassons( nrOfActiveSeassons)
+ ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:55:5: error: stray ‘\303’ in program
+     rr << "namn: " << this->namn <<"\nKön: "<<this->kön<<"\nklubb: "<<this->klubb<<"\nAntal aktiva sässonger: "<<this->nrOfActiveSeassons;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:55:5: error: stray ‘\266’ in program
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:4:0:
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:5: error: stray ‘\303’ in program
+     string namn, kön, klubb;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: error: stray ‘\303’ in program
+     professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons);
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:5: error: stray ‘\303’ in program
+     const string getKön() const ; //
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\303’ in program
+     void setKön(const string kön) ;//
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:5: error: stray ‘\266’ in program
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:5: error: stray ‘\303’ in program
+     string namn, kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:5: error: stray ‘\303’ in program
+     int ålder;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:5: error: stray ‘\303’ in program
+     const string getKön() const;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\303’ in program
+     void setKön(const string kön) ;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:5: error: stray ‘\303’ in program
+     int getÅlder() const;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:5: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\303’ in program
+     void setÅlder(int ålder);
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\245’ in program
+In file included from /root/IDEstorage/DV1497/AssignmentB/motionar.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:5: error: stray ‘\303’ in program
+     string namn, kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:5: error: stray ‘\303’ in program
+     int ålder;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:5: error: stray ‘\303’ in program
+     const string getKön() const;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\303’ in program
+     void setKön(const string kön) ;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:5: error: stray ‘\303’ in program
+     int getÅlder() const;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:5: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\303’ in program
+     void setÅlder(int ålder);
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:16:1: error: stray ‘\303’ in program
+ const string motionar::getKön() const {
+ ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:16:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:17:5: error: stray ‘\303’ in program
+     return kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:17:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:20:1: error: stray ‘\303’ in program
+ void motionar::setKön(const string kön) {
+ ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:20:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:20:1: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:20:1: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:21:5: error: stray ‘\303’ in program
+     this->kön = kön;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:21:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:21:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:21:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:24:1: error: stray ‘\303’ in program
+ int motionar::getÅlder() const
+ ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:24:1: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:26:5: error: stray ‘\303’ in program
+     return this->ålder;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:26:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:29:1: error: stray ‘\303’ in program
+ void motionar::setÅlder(int ålder) {
+ ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:29:1: error: stray ‘\205’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:29:1: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:29:1: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:30:5: error: stray ‘\303’ in program
+     this->ålder = ålder;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:30:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:30:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:30:5: error: stray ‘\245’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:36:5: error: stray ‘\303’ in program
+     ss << "namn: " << this->namn <<"\nKön: "<<this->kön<<"\nÅlder: "<<this->ålder;
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:36:5: error: stray ‘\266’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:36:5: error: stray ‘\303’ in program
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:36:5: error: stray ‘\245’ in program
+In file included from /root/IDEstorage/DV1497/AssignmentB/professionell.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:18: error: expected ‘;’ at end of member declaration
+     string namn, kön, klubb;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:21: error: ‘n’ does not name a type
+     string namn, kön, klubb;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:42: error: expected ‘,’ or ‘...’ before ‘n’
+     professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons);
+                                          ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:18: error: expected ‘;’ at end of member declaration
+     const string getKön() const ; //
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:28: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     const string getKön() const ; //
+                            ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:10: error: variable or field ‘setK’ declared void
+     void setKön(const string kön) ;//
+          ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:34: error: expected ‘,’ or ‘...’ before ‘n’
+     void setKön(const string kön) ;//
+                                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:35: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     void setKön(const string kön) ;//
+                                   ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:17:35: error: expected initializer before ‘n’
+ const string professionell::getKön() const
+                                   ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:22:27: error: expected initializer before ‘n’
+ void professionell::setKön(const string kön)
+                           ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: In member function ‘const string professionell::getKlubb() const’:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:29:18: error: ‘const class professionell’ has no member named ‘klubb’
+     return this->klubb;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: In member function ‘void professionell::setKlubb(std::string)’:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:34:11: error: ‘class professionell’ has no member named ‘klubb’
+     this->klubb = klubb;
+           ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: At global scope:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:53: error: expected ‘,’ or ‘...’ before ‘n’
+ professionell::professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons) : namn(namn), kön(kön), klubb(klubb),  nrOfActiveSeassons( nrOfActiveSeassons)
+                                                     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: In constructor ‘professionell::professionell(std::string, std::string)’:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:112: error: expected ‘(’ before ‘n’
+ professionell::professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons) : namn(namn), kön(kön), klubb(klubb),  nrOfActiveSeassons( nrOfActiveSeassons)
+                                                                                                                ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:112: error: expected ‘{’ before ‘n’
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: At global scope:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:47:113: error: expected constructor, destructor, or type conversion before ‘(’ token
+ professionell::professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons) : namn(namn), kön(kön), klubb(klubb),  nrOfActiveSeassons( nrOfActiveSeassons)
+                                                                                                                 ^
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:4:0:
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:18: error: expected ‘;’ at end of member declaration
+     string namn, kön, klubb;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:13:21: error: ‘n’ does not name a type
+     string namn, kön, klubb;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:42: error: expected ‘,’ or ‘...’ before ‘n’
+     professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons);
+                                          ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:18: error: expected ‘;’ at end of member declaration
+     const string getKön() const ; //
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:29:28: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     const string getKön() const ; //
+                            ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:10: error: variable or field ‘setK’ declared void
+     void setKön(const string kön) ;//
+          ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:34: error: expected ‘,’ or ‘...’ before ‘n’
+     void setKön(const string kön) ;//
+                                  ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:31:35: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     void setKön(const string kön) ;//
+                                   ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp: In member function ‘std::string professionell::toStringSpecific() const’:
+/root/IDEstorage/DV1497/AssignmentB/professionell.cpp:55:57: error: expected ‘;’ before ‘n’
+     rr << "namn: " << this->namn <<"\nKön: "<<this->kön<<"\nklubb: "<<this->klubb<<"\nAntal aktiva sässonger: "<<this->nrOfActiveSeassons;
+                                                         ^
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:18: error: expected ‘;’ at end of member declaration
+     string namn, kön;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:21: error: ‘n’ does not name a type
+     string namn, kön;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:51: error: expected ‘,’ or ‘...’ before ‘n’
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+                                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:18: error: expected ‘;’ at end of member declaration
+     const string getKön() const;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:28: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     const string getKön() const;
+                            ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:10: error: variable or field ‘setK’ declared void
+     void setKön(const string kön) ;
+          ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:34: error: expected ‘,’ or ‘...’ before ‘n’
+     void setKön(const string kön) ;
+                                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:35: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     void setKön(const string kön) ;
+                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:9: error: expected ‘;’ at end of member declaration
+     int getÅlder() const;
+         ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:21: error: ISO C++ forbids declaration of ‘lder’ with no type [-fpermissive]
+     int getÅlder() const;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:21: error: ‘int motionar::lder() const’ conflicts with a previous declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:11: note: previous declaration ‘int motionar::lder’
+     int ålder;
+           ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:10: error: variable or field ‘set’ declared void
+     void setÅlder(int ålder);
+          ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:30: error: ISO C++ forbids declaration of ‘lder’ with no type [-fpermissive]
+     void setÅlder(int ålder);
+                              ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:30: error: ‘motionar::lder’ conflicts with a previous declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:11: note: previous declaration ‘int motionar::lder’
+     int ålder;
+           ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h: In constructor ‘motionar::motionar(const string&, const string&)’:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:83: error: expected ‘(’ before ‘n’
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+                                                                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:83: error: expected ‘{’ before ‘n’
+/root/IDEstorage/DV1497/AssignmentB/main.cpp: In function ‘int main()’:
+/root/IDEstorage/DV1497/AssignmentB/main.cpp:13:54: error: no matching function for call to ‘professionell::professionell(const char [7], const char [4], const char [10], int)’
+     professionell testA("Björn","Man","Malmö IF", 2);
+                                                      ^
+/root/IDEstorage/DV1497/AssignmentB/main.cpp:13:54: note: candidates are:
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:4:0:
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: note: professionell::professionell(std::string, std::string)
+     professionell(string namn, string kön, string klubb, int  nrOfActiveSeassons);
+     ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:20:5: note:   candidate expects 2 arguments, 4 provided
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:10:7: note: professionell::professionell(const professionell&)
+ class professionell
+       ^
+/root/IDEstorage/DV1497/AssignmentB/professionell.h:10:7: note:   candidate expects 1 argument, 4 provided
+/root/IDEstorage/DV1497/AssignmentB/main.cpp:14:42: error: no matching function for call to ‘motionar::motionar(const char [8], const char [7], int)’
+     motionar testB("Gunhild","Kvinna", 23);
+                                          ^
+/root/IDEstorage/DV1497/AssignmentB/main.cpp:14:42: note: candidates are:
+In file included from /root/IDEstorage/DV1497/AssignmentB/main.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: note: motionar::motionar(const string&, const string&)
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:5: note:   candidate expects 2 arguments, 3 provided
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:9:7: note: motionar::motionar(const motionar&)
+ class motionar
+       ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:9:7: note:   candidate expects 1 argument, 3 provided
+In file included from /root/IDEstorage/DV1497/AssignmentB/motionar.cpp:5:0:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:18: error: expected ‘;’ at end of member declaration
+     string namn, kön;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:12:21: error: ‘n’ does not name a type
+     string namn, kön;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:51: error: expected ‘,’ or ‘...’ before ‘n’
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+                                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:18: error: expected ‘;’ at end of member declaration
+     const string getKön() const;
+                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:26:28: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     const string getKön() const;
+                            ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:10: error: variable or field ‘setK’ declared void
+     void setKön(const string kön) ;
+          ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:34: error: expected ‘,’ or ‘...’ before ‘n’
+     void setKön(const string kön) ;
+                                  ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:28:35: error: ISO C++ forbids declaration of ‘n’ with no type [-fpermissive]
+     void setKön(const string kön) ;
+                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:9: error: expected ‘;’ at end of member declaration
+     int getÅlder() const;
+         ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:21: error: ISO C++ forbids declaration of ‘lder’ with no type [-fpermissive]
+     int getÅlder() const;
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:30:21: error: ‘int motionar::lder() const’ conflicts with a previous declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:11: note: previous declaration ‘int motionar::lder’
+     int ålder;
+           ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:10: error: variable or field ‘set’ declared void
+     void setÅlder(int ålder);
+          ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:10: error: expected ‘;’ at end of member declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:30: error: ISO C++ forbids declaration of ‘lder’ with no type [-fpermissive]
+     void setÅlder(int ålder);
+                              ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:32:30: error: ‘motionar::lder’ conflicts with a previous declaration
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:13:11: note: previous declaration ‘int motionar::lder’
+     int ålder;
+           ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h: In constructor ‘motionar::motionar(const string&, const string&)’:
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:83: error: expected ‘(’ before ‘n’
+     motionar(const string &namn, const string &kön, int ålder) : namn(namn), kön(kön), ålder(ålder) { }
+                                                                                   ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.h:17:83: error: expected ‘{’ before ‘n’
+CMakeFiles/AssignmentB.dir/build.make:110: receptet för målet ”CMakeFiles/AssignmentB.dir/professionell.cpp.o” misslyckades
+make[3]: *** [CMakeFiles/AssignmentB.dir/professionell.cpp.o] Fel 1
+make[3]: *** Inväntar oavslutade jobb...
+CMakeFiles/AssignmentB.dir/build.make:62: receptet för målet ”CMakeFiles/AssignmentB.dir/main.cpp.o” misslyckades
+make[3]: *** [CMakeFiles/AssignmentB.dir/main.cpp.o] Fel 1
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp: At global scope:
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:16:30: error: expected initializer before ‘n’
+ const string motionar::getKön() const {
+                              ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:20:22: error: expected initializer before ‘n’
+ void motionar::setKön(const string kön) {
+                      ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:24:20: error: expected initializer before ‘lder’
+ int motionar::getÅlder() const
+                    ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:29:21: error: expected initializer before ‘lder’
+ void motionar::setÅlder(int ålder) {
+                     ^
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp: In member function ‘std::string motionar::toStringSpecific() const’:
+/root/IDEstorage/DV1497/AssignmentB/motionar.cpp:36:57: error: expected ‘;’ before ‘n’
+     ss << "namn: " << this->namn <<"\nKön: "<<this->kön<<"\nÅlder: "<<this->ålder;
+                                                         ^
+CMakeFiles/AssignmentB.dir/build.make:86: receptet för målet ”CMakeFiles/AssignmentB.dir/motionar.cpp.o” misslyckades
+make[3]: *** [CMakeFiles/AssignmentB.dir/motionar.cpp.o] Fel 1
+CMakeFiles/Makefile2:67: receptet för målet ”CMakeFiles/AssignmentB.dir/all” misslyckades
+make[2]: *** [CMakeFiles/AssignmentB.dir/all] Fel 2
+CMakeFiles/Makefile2:79: receptet för målet ”CMakeFiles/AssignmentB.dir/rule” misslyckades
+make[1]: *** [CMakeFiles/AssignmentB.dir/rule] Fel 2
+Makefile:118: receptet för målet ”AssignmentB” misslyckades
+make: *** [AssignmentB] Fel 2
+
