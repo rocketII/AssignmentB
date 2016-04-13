@@ -5,6 +5,7 @@
 #include "register.h"
 #include <typeinfo>
 
+using namespace std;
 Register::Register()
 {
     this->capacitet=1;
@@ -48,6 +49,7 @@ Register::~Register()
     delete[] this->deltagarLista;
 
 }
+
 Register& Register::operator=(const Register &orgin)
 {
     if(this != &orgin)
@@ -67,6 +69,7 @@ Register& Register::operator=(const Register &orgin)
     }
     return *this;
 }
+
 void Register::nyProfessionellDeltagare(string namn, string kon, string klubb, int aktivaPerioder)
 {
     if(this->antalDeltagare < this->capacitet)
@@ -76,7 +79,7 @@ void Register::nyProfessionellDeltagare(string namn, string kon, string klubb, i
     }
     else
     {
-        //expand();
+        expand();
         ;
     }
 }
@@ -90,14 +93,16 @@ void Register::nyMotionarDeltagare(string namn, string kon, int gammal)
     }
     else
     {
-        //expand();
+        expand();
         ;
     }
 }
+
 int Register::antaletDeltagare() const
 {
     return this->antalDeltagare;
 }
+
 int Register::antalMotionarer() const
 {
     int counter=0;
@@ -129,6 +134,7 @@ int Register::antalMotionarer() const
     }
     return counter;
 }
+
 int Register::antalProffs() const
 {
     int counter=0;
@@ -160,6 +166,7 @@ int Register::antalProffs() const
     }
     return counter;
 }
+
 void Register::AllaDeltagare(string *array)
 {
     for (int i = 0; i < this->antaletDeltagare() ; ++i)
@@ -167,6 +174,7 @@ void Register::AllaDeltagare(string *array)
       array[i] = this->deltagarLista[i]->toString();
     }
 }
+
 void Register::AllaProffs(string *array)
 {
     int p = 0;
@@ -190,6 +198,7 @@ void Register::AllaProffs(string *array)
         }
     }
 }
+
 void Register::AllaMotionarer(string *array)
 {
     int q=0;
@@ -243,6 +252,7 @@ void Register::rmDeltagare(const string Uniktnamn)
     }
 }
 
+
 void Register::setProffsActiveYears(int yearInService, string namn)
 {
     professionell* ptr2Human= nullptr;
@@ -256,6 +266,7 @@ void Register::setProffsActiveYears(int yearInService, string namn)
     }
 
 }
+
 /*
 int Register::getProffsActiveYears(string namn)
 {
@@ -271,9 +282,10 @@ int Register::getProffsActiveYears(string namn)
     return -1;
 }
 */ //debug only
+
 void Register::expand()
 {
-    deltagare** tmpPtr=new deltagare*[this->capacitet];
+    deltagare** tmpPtr=new deltagare*[this->antalDeltagare];
     motionar* Wptr= nullptr;
     professionell* Rptr= nullptr;
     for (int i = 0; i < this->antalDeltagare ; ++i)
@@ -298,14 +310,15 @@ void Register::expand()
     this->capacitet += 5;
 
     for (int i = 0; i < this->antalDeltagare ; ++i)
-    {
-        if(typeid(*tmpPtr[i]) == typeid(motionar))
+    {   //              deltagare         vs.       motionar
+        //typeid(tmpPtr).name() + typeid(motionar).name();
+        if(typeid(tmpPtr[i]) == typeid(motionar))
         {
             Wptr = dynamic_cast<motionar*>(tmpPtr[i]);
 
 
         }
-        if(typeid(*tmpPtr[i]) == typeid(professionell))
+        if(typeid(tmpPtr[i]) == typeid(professionell))
         {
             Rptr = dynamic_cast<professionell*>(tmpPtr[i]);
 
