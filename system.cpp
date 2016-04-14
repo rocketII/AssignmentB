@@ -9,7 +9,7 @@ System::System(void)
 
 System::~System(void)
 {
-	delete[] this->ptr;
+	delete this->ptr;
 }
 void System::menutxt(void)const
 {
@@ -35,7 +35,8 @@ void System::menutxt(void)const
 <<"K: Sortera alla tävlingsdeltagare baserat på namnet.\n"
 <<"L: Exit.\n "<<endl;
 }
-void System::menu(void){
+void System::menu(void)
+{
 	bool flag = true;
     char choice;
 	
@@ -116,23 +117,25 @@ void System::addProffs(void)const
 }
 void System::toString_registerData(void)
 {
-    string *ptr= nullptr;
+    delete this->ptr;
+    this->ptr= nullptr;
     if(this->getNrOfPlayers() == 0)
     {
-        ptr = new string[1];
-        ptr[0]="empty";
+        this->ptr = new string[1];
+        this->ptr[0]="empty";
     }
     else
     {
-        ptr = new string[this->getNrOfPlayers()];
+        this->ptr = new string[this->getNrOfPlayers()];
         this->instance.AllaDeltagare(ptr);
     }
     cout<<"--------------------------------";
     for (int i = 0; i < this->getNrOfPlayers() ; ++i)
     {
-        ptr[i];
+        this->ptr[i];
     }
-    delete[] ptr;
+    delete[] this->ptr;
+    this->ptr= nullptr;
 }
 int System::getNrOfPlayers(void)const
 {
@@ -140,13 +143,52 @@ int System::getNrOfPlayers(void)const
 }
 void System::toString_proPlayers(void)const
 {
-
+    delete this->ptr;
+    this->ptr= nullptr;
+    if(this->getNrOfPlayers() == 0)
+    {
+        this->ptr = new string[1];
+        this->ptr[0]="empty";
+    }
+    else
+    {
+        this->ptr = new string[this->getNrOfProPlayers()];
+        this->instance.AllaProffs(ptr);
+    }
+    cout<<"--------------------------------";
+    for (int i = 0; i < this->getNrOfProPlayers() ; ++i)
+    {
+        this->ptr[i];
+    }
+    delete[] this->ptr;
+    this->ptr= nullptr;
 }
 int System::getNrOfProPlayers(void)const
 {
     return this->instance.antalProffs();
 }
-void System::toString_motionarPlayers(void)const{}
+void System::toString_motionarPlayers(void)const
+{
+    delete this->ptr;
+    this->ptr= nullptr;
+    if(this->getNrOfPlayers() == 0)
+    {
+        this->ptr = new string[1];
+        this->ptr[0]="empty";
+    }
+    else
+    {
+        this->ptr = new string[this->getNrOfPlayers()];
+        this->instance.AllaDeltagare(ptr);
+    }
+    cout<<"--------------------------------";
+    for (int i = 0; i < this->getNrOfPlayers() ; ++i)
+    {
+        this->ptr[i];
+    }
+    delete[] this->ptr;
+    this->ptr = nullptr;
+}
 int System::getNrOfMotionarer(void)const
 {
     return this->instance.antalMotionarer();
@@ -158,6 +200,14 @@ void System::rmPlayer(void)const
     getline(cin, namn);
     this->instance.rmDeltagare(namn);
 }
-void System::changeProPlayerYearInService(void)const{}
-void System::sortPlayersByNames(void)const{}
+void System::changeProPlayerYearInService(void)const
+{
+    int change=-1;
+    cout <<"Ändra med x år?\nx= ";
+    cin >> yearInService;
+}
+void System::sortPlayersByNames(void)const
+{
+    this->instance.sortingByNames();
+}
 
