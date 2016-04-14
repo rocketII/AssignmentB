@@ -69,7 +69,7 @@ Register& Register::operator=(const Register &orgin)
     }
     return *this;
 }
-
+//needs expansion part
 void Register::nyProfessionellDeltagare(string namn, string kon, string klubb, int aktivaPerioder)
 {
     if(this->antalDeltagare < this->capacitet)
@@ -83,7 +83,7 @@ void Register::nyProfessionellDeltagare(string namn, string kon, string klubb, i
         ;
     }
 }
-
+//needs expansion part
 void Register::nyMotionarDeltagare(string namn, string kon, int gammal)
 {
     if(this->antalDeltagare < this->capacitet)
@@ -361,13 +361,34 @@ int partition(T theArray[], int start, int end)
 bool Register::operator<(const Register &orgin)
 {
     bool flag= false;
-    //
+    ;
     return flag;
 }
 
 void Register::sortingByNames(void)
 {
+    deltagare* ptrCool= nullptr;
     //quicksort algorithm by C. A. R. Hoare, 1960    deltagare *orgin, int start, int end
+    for (int i = 0; i < this->antalDeltagare ; ++i)
+    {
+       if(this->deltagarLista[i]->getNamn() < this->deltagarLista[i+1]->getNamn())
+           ;
+        else
+       {
+           if(typeid(*this->deltagarLista[i+1]) == typeid(motionar))
+           {
+               ptrCool = dynamic_cast<motionar*>(this->deltagarLista[i+1]);
+
+           }
+           if(typeid(*this->deltagarLista[i])== typeid(professionell))
+           {
+               ptrCool = dynamic_cast<professionell*>(this->deltagarLista[i+1]);
+           }
+           this->deltagarLista[i+1] = this->deltagarLista[i];
+           this->deltagarLista[i] = ptrCool;
+           ptrCool= nullptr;
+       }
+    }
 
 }
 
