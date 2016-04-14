@@ -9,7 +9,7 @@ System::System(void)
 
 System::~System(void)
 {
-	delete this->ptr;
+	delete[] this->ptr;
 }
 void System::menutxt(void)const
 {
@@ -88,15 +88,76 @@ void System::menu(void){
 	} while (flag == true);
 }
 
-void System::addMotionar(void)const{}
-void System::addProffs(void)const{}
-void System::toString_registerData(void){}
-int System::getNrOfPlayers(void)const{}
-void System::toString_proPlayers(void)const{}
-int System::getNrOfProPlayers(void)const{}
+void System::addMotionar(void)const
+{
+	string namn, gender;
+	int age=0;
+	cout <<"Namn?: ";
+	getline(cin, namn);
+	cout <<"Kön?: ";
+	getline(cin, gender);
+	cout <<"ålder?: ";
+	cin >> age;
+	this->instance.nyMotionarDeltagare(namn, gender ,age);
+}
+void System::addProffs(void)const
+{
+    string namn, gender, klubb;
+    int yearInService=0;
+    cout <<"Namn?: ";
+    getline(cin, namn);
+    cout <<"Kön?: ";
+    getline(cin, gender);
+    cout <<"Klubb?: ";
+    getline(cin, klubb);
+    cout <<"År som proffs?: ";
+    cin >> yearInService;
+    this->instance.nyProfessionellDeltagare(namn, gender, klubb, yearInService);
+}
+void System::toString_registerData(void)
+{
+    string *ptr= nullptr;
+    if(this->getNrOfPlayers() == 0)
+    {
+        ptr = new string[1];
+        ptr[0]="empty";
+    }
+    else
+    {
+        ptr = new string[this->getNrOfPlayers()];
+        this->instance.AllaDeltagare(ptr);
+    }
+    cout<<"--------------------------------";
+    for (int i = 0; i < this->getNrOfPlayers() ; ++i)
+    {
+        ptr[i];
+    }
+    delete[] ptr;
+}
+int System::getNrOfPlayers(void)const
+{
+    return this->instance.antaletDeltagare();
+}
+void System::toString_proPlayers(void)const
+{
+
+}
+int System::getNrOfProPlayers(void)const
+{
+    return this->instance.antalProffs();
+}
 void System::toString_motionarPlayers(void)const{}
-int System::getNrOfMotionarer(void)const{}
-void System::rmPlayer(void)const{}
+int System::getNrOfMotionarer(void)const
+{
+    return this->instance.antalMotionarer();
+}
+void System::rmPlayer(void)const
+{
+    string namn;
+    cout <<"Namn?: ";
+    getline(cin, namn);
+    this->instance.rmDeltagare(namn);
+}
 void System::changeProPlayerYearInService(void)const{}
 void System::sortPlayersByNames(void)const{}
 

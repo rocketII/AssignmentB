@@ -4,7 +4,7 @@
 
 #include "register.h"
 #include <typeinfo>
-
+#include <algorithm>
 using namespace std;
 Register::Register()
 {
@@ -327,3 +327,47 @@ void Register::expand()
 
     }
 }
+//sorting relevant
+/*
+template <typename T>//only one function at a time.
+void quickSort(T arr[], int start, int end)
+{
+    if(start < end)
+    {
+        int pivot = partition(arr, start, end);
+        quickSort(arr, start, pivot-1);
+        quickSort(arr, pivot+1, end);
+    }
+
+}
+
+template <typename T>
+int partition(T theArray[], int start, int end)
+{
+    T pivotValue = theArray[start];
+    int pivotPos=start;
+    for(int i=start+1; i<=end;i++)
+    {
+        if(theArray[i]<pivotValue)
+        {
+            swapI(theArray[i], theArray[pivotPos+1]);
+            swapI(theArray[pivotPos], theArray[pivotPos+1]);
+            pivotPos++;
+        }
+    }
+    return pivotPos;
+}
+ */
+bool Register::operator<(const Register &orgin)
+{
+    bool flag= false;
+    //
+    return flag;
+}
+
+void Register::sortingByNames(void)
+{
+    //quicksort algorithm by C. A. R. Hoare, 1960    deltagare *orgin, int start, int end
+
+}
+

@@ -18,6 +18,7 @@ public:
     Register(const Register& orgin);
     ~Register();
     Register& operator=(const Register& orgin);
+    bool operator<(const Register& orgin);
     void expand();
     void nyProfessionellDeltagare(string namn, string kon, string klubb, int aktivaPerioder);
     void nyMotionarDeltagare(string namn, string kon, int gammal);
@@ -29,6 +30,8 @@ public:
     void AllaProffs(string array[]);
     void rmDeltagare(const string Uniktnamn);
     void setProffsActiveYears(int yearInService, string namn);
+    void sortingByNames(void);
+
     //int getProffsActiveYears(string namn); Debug mode only!!!
 };
 #endif //ASSIGNMENTB_REGISTER_H_H
