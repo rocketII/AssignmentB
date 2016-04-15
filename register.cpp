@@ -94,7 +94,8 @@ void Register::nyMotionarDeltagare(string namn, string kon, int gammal)
     else
     {
         expand();
-        ;
+        this->deltagarLista[this->antalDeltagare] = new motionar(namn, kon, gammal);
+        this->antalDeltagare++;
     }
 }
 
@@ -242,6 +243,7 @@ void Register::rmDeltagare(const string Uniktnamn)
             }
             if(this->antaletDeltagare() > 1)
             {
+                //stoppa allt.
                 this->deltagarLista[i]->setNamn( this->deltagarLista[this->antaletDeltagare() - 1]->getNamn());
                 this->deltagarLista[i]->setKon( this->deltagarLista[this->antaletDeltagare() - 1]->getKon());
                 delete this->deltagarLista[this->antaletDeltagare() - 1];
@@ -285,46 +287,27 @@ int Register::getProffsActiveYears(string namn)
 
 void Register::expand()
 {
-    deltagare** tmpPtr=new deltagare*[this->antalDeltagare];
-    motionar* Wptr= nullptr;
-    professionell* Rptr= nullptr;
+    //skapa tmp behållare för klass obj ptr
+    deltagare** tmp= new deltagare*[this->antaletDeltagare()];
+
+    //copy: från this[] till tmp[]
     for (int i = 0; i < this->antalDeltagare ; ++i)
     {
-        if(typeid(*this->deltagarLista[i]) == typeid(motionar))
-        {
-            Wptr = dynamic_cast<motionar*>(this->deltagarLista[i]);
-            tmpPtr[i]= Wptr;
-            delete this->deltagarLista[i];
-        }
-        if(typeid(*this->deltagarLista[i]) == typeid(professionell))
-        {
-            Rptr = dynamic_cast<professionell*>(this->deltagarLista[i]);
-            tmpPtr[i]= Wptr;
-            delete this->deltagarLista[i];
-        }
-
+        tmp[i] = this->deltagarLista[i]->clone();
     }
-
-    delete[] this->deltagarLista;
-    this->deltagarLista= new deltagare*[this->capacitet+5];
-    this->capacitet += 5;
-
+    //rm: this[]
     for (int i = 0; i < this->antalDeltagare ; ++i)
-    {   //              deltagare         vs.       motionar
-        //typeid(tmpPtr).name() + typeid(motionar).name();
-        if(typeid(tmpPtr[i]) == typeid(motionar))
-        {
-            Wptr = dynamic_cast<motionar*>(tmpPtr[i]);
-
-
-        }
-        if(typeid(tmpPtr[i]) == typeid(professionell))
-        {
-            Rptr = dynamic_cast<professionell*>(tmpPtr[i]);
-
-
-        }
-
+    {
+        delete this->deltagarLista[i];
+    }
+    delete[] this->deltagarLista;
+    //new: större this[]. gör  capacity större.
+    this->deltagarLista= new deltagare*[this->capacitet+3];
+    this->capacitet += 3;
+    //copy: tmp[] till this[]
+    for (int i = 0; i < this->antalDeltagare ; ++i)
+    {
+        this->deltagarLista[i]= tmp[i]->clone();
     }
 }
 //sorting relevant
@@ -367,28 +350,45 @@ bool Register::operator<(const Register &orgin)
 
 void Register::sortingByNames(void)
 {
-    deltagare* ptrCool= nullptr;
     //quicksort algorithm by C. A. R. Hoare, 1960    deltagare *orgin, int start, int end
-    for (int i = 0; i < this->antalDeltagare ; ++i)
-    {
-       if(this->deltagarLista[i]->getNamn() < this->deltagarLista[i+1]->getNamn())
-           ;
-        else
-       {
-           if(typeid(*this->deltagarLista[i+1]) == typeid(motionar))
-           {
-               ptrCool = dynamic_cast<motionar*>(this->deltagarLista[i+1]);
+    this->quickSort(*this, 0, this->antalDeltagare);
 
-           }
-           if(typeid(*this->deltagarLista[i])== typeid(professionell))
-           {
-               ptrCool = dynamic_cast<professionell*>(this->deltagarLista[i+1]);
-           }
-           this->deltagarLista[i+1] = this->deltagarLista[i];
-           this->deltagarLista[i] = ptrCool;
-           ptrCool= nullptr;
-       }
+}
+
+
+void Register::quickSort(Register& orgin, int start, int end)
+{
+    if(start < end)
+    {
+        int pivot = partition(orgin, start, end);
+        quickSort(orgin, start, pivot-1);
+        quickSort(orgin, pivot+1, end);
     }
 
 }
+
+int Register::partition(Register& orgin, int start, int end)
+{
+    string pivotValue = orgin.deltagarLista[start]->getNamn();
+    int pivotPos=start;
+    for(int i=start+1; i<=end;i++)
+    {
+        if(orgin.deltagarLista[i]->getNamn()<pivotValue)
+        {
+            swapI(orgin, i, orgin, pivotPos+1);
+            swapI(orgin, i, orgin, pivotPos+1);
+            pivotPos++;
+        }
+    }
+    return pivotPos;
+}
+
+void Register::swapI(Register& source,int index1, Register& orgin , int index2)
+{
+    deltagare* tmp = source.deltagarLista[index1]->clone();
+    delete source.deltagarLista[index1];
+    source.deltagarLista[index1] = orgin.deltagarLista[index2]->clone();
+    orgin.deltagarLista[index2] = tmp;
+}
+
 

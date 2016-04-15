@@ -12,6 +12,9 @@ class Register
 private:
     deltagare** deltagarLista;
     int antalDeltagare, capacitet;
+    void quickSort(Register& orgin, int start, int end);
+    int partition(Register& orgin, int start, int end);
+    void swapI(Register& source,int index1, Register& orgin , int index2);
 public:
     Register();
     Register(int capacitet);

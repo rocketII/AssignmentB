@@ -22,18 +22,18 @@ void System::menutxt(void)const
 	//\x84 = ä \x94 = ö, \x86 = å.
 	cout<<"\nDeltagar hanterare 2016";
 	cout<<"\n Tips: efter varje inmatning tryck p\x86 retur-,linefeed- eller radbrytningstangenten.\n";
-	cout<<"A: Lägga till en motionär.\n"
-<<"B: Lägga till en professionell deltagare.\n"
-<<"C: Erhåll Samtliga tävlingsdeltagare.\n"
-<<"D: Inlagda tävlingsdeltagare.\n"
-<<"E: Endast professionella deltagare.\n"
-<<"F: Erhåll antalet inlagda professionella deltagare.\n"
-<<"G: Endast motionärer.\n"
-<<"H: Erhålla antalet inlagda motionärer.\n"
-<<"I: Ta bort en tävlingsdeltagare givet namnet.\n"
-<<"J: Ändra antal säsonger som professionell för en given professionell deltagare.\n"
-<<"K: Sortera alla tävlingsdeltagare baserat på namnet.\n"
-<<"L: Exit.\n "<<endl;
+	cout<<"A: L\x84gga till en motion\x84r.\n"
+    <<"B: L\x84gga till en professionell deltagare.\n"
+    <<"C: Erh\x86ll Samtliga t\x84vlingsdeltagare.\n"
+    <<"D: Inlagda t\x84vlingsdeltagare.\n"
+    <<"E: Endast professionella deltagare.\n"
+    <<"F: Erh\x86ll antalet inlagda professionella deltagare.\n"
+    <<"G: Endast motion\x84rer.\n"
+    <<"H: Erh\x86lla antalet inlagda motion\x84rer.\n"
+    <<"I: Ta bort en t\x84vlingsdeltagare givet namnet.\n"
+    <<"J: \x84ndra antal s\x84songer som professionell f\x94r en given professionell deltagare.\n"
+    <<"K: Sortera alla t\x84vlingsdeltagare baserat p\x86 namnet.\n"
+    <<"L: Exit.\n "<<endl;
 }
 void System::menu(void)
 {
@@ -58,19 +58,19 @@ void System::menu(void)
 			this->toString_registerData();
 			break;
 		case 'D':
-			this->getNrOfPlayers();
+			cout << this->getNrOfPlayers();
 			break;
 		case 'E':
 			this->toString_proPlayers();
 			break;
 		case 'F':
-			this->getNrOfProPlayers();
+			cout << this->getNrOfProPlayers();
 			break;
 		case 'G':
 			this->toString_motionarPlayers();
 			break;
 		case 'H':
-			this->getNrOfMotionarer();
+			cout << this->getNrOfMotionarer()+1;
 			break;
 		case 'I':
 			this->rmPlayer();
@@ -89,29 +89,29 @@ void System::menu(void)
 	} while (flag == true);
 }
 
-void System::addMotionar(void)const
+void System::addMotionar(void)
 {
 	string namn, gender;
 	int age=0;
 	cout <<"Namn?: ";
 	getline(cin, namn);
-	cout <<"Kön?: ";
+	cout <<"K\x94n?: ";
 	getline(cin, gender);
-	cout <<"ålder?: ";
+	cout <<"\x86lder?: ";
 	cin >> age;
 	this->instance.nyMotionarDeltagare(namn, gender ,age);
 }
-void System::addProffs(void)const
+void System::addProffs(void)
 {
     string namn, gender, klubb;
     int yearInService=0;
     cout <<"Namn?: ";
     getline(cin, namn);
-    cout <<"Kön?: ";
+    cout <<"K\x94n?: ";
     getline(cin, gender);
     cout <<"Klubb?: ";
     getline(cin, klubb);
-    cout <<"År som proffs?: ";
+    cout <<"\x86r som proffs?: ";
     cin >> yearInService;
     this->instance.nyProfessionellDeltagare(namn, gender, klubb, yearInService);
 }
@@ -132,7 +132,7 @@ void System::toString_registerData(void)
     cout<<"--------------------------------";
     for (int i = 0; i < this->getNrOfPlayers() ; ++i)
     {
-        this->ptr[i];
+        cout << this->ptr[i];
     }
     delete[] this->ptr;
     this->ptr= nullptr;
@@ -141,7 +141,7 @@ int System::getNrOfPlayers(void)const
 {
     return this->instance.antaletDeltagare();
 }
-void System::toString_proPlayers(void)const
+void System::toString_proPlayers(void)
 {
     delete this->ptr;
     this->ptr= nullptr;
@@ -158,7 +158,7 @@ void System::toString_proPlayers(void)const
     cout<<"--------------------------------";
     for (int i = 0; i < this->getNrOfProPlayers() ; ++i)
     {
-        this->ptr[i];
+        cout << this->ptr[i];
     }
     delete[] this->ptr;
     this->ptr= nullptr;
@@ -167,7 +167,7 @@ int System::getNrOfProPlayers(void)const
 {
     return this->instance.antalProffs();
 }
-void System::toString_motionarPlayers(void)const
+void System::toString_motionarPlayers(void)
 {
     delete this->ptr;
     this->ptr= nullptr;
@@ -184,7 +184,7 @@ void System::toString_motionarPlayers(void)const
     cout<<"--------------------------------";
     for (int i = 0; i < this->getNrOfPlayers() ; ++i)
     {
-        this->ptr[i];
+       cout <<  this->ptr[i];
     }
     delete[] this->ptr;
     this->ptr = nullptr;
@@ -193,20 +193,25 @@ int System::getNrOfMotionarer(void)const
 {
     return this->instance.antalMotionarer();
 }
-void System::rmPlayer(void)const
+void System::rmPlayer(void)
 {
     string namn;
     cout <<"Namn?: ";
     getline(cin, namn);
     this->instance.rmDeltagare(namn);
 }
-void System::changeProPlayerYearInService(void)const
+void System::changeProPlayerYearInService(void)
 {
+    string namnDelta;
+    int yearInService=-1;
     int change=-1;
-    cout <<"Ändra med x år?\nx= ";
+    cout <<"Namn: ";
+    getline(cin, namnDelta);
+    cout <<"\x84ndra med x \x86r?\nx= ";
     cin >> yearInService;
+    this->instance.setProffsActiveYears(yearInService, namnDelta);
 }
-void System::sortPlayersByNames(void)const
+void System::sortPlayersByNames(void)
 {
     this->instance.sortingByNames();
 }
