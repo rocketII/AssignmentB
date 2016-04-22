@@ -5,8 +5,8 @@
 #ifndef ASSIGNMENTB_REGISTER_H
 #define ASSIGNMENTB_REGISTER_H
 
-#include "professionell.h"
-#include "motionar.h"
+#include "AirInstrument.h"
+#include "StringInstrument.h"
 class Register
 {
 private:

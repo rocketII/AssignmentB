@@ -2,7 +2,7 @@
 // Created by root on 2016-04-12.
 //
 
-#include "motionar.h"
+#include "StringInstrument.h"
 #include <sstream>
 
 

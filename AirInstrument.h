@@ -7,6 +7,7 @@
 #include"deltagare.h"
 #include <string>
 #include <sstream>
+// used to be professionell...
 using  namespace std;
 class professionell : public  deltagare
 {

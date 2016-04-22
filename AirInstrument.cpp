@@ -2,7 +2,7 @@
 // Created by root on 2016-04-12.
 //
 
-#include "professionell.h"
+#include "AirInstrument.h"
 
 const string professionell::getKlubb() const
 {

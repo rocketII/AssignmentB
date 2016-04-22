@@ -20,20 +20,17 @@ void System::menutxt(void)const
 	system("clear");
 	cout<<"//////////////////////////////////////////////////////////////////////////////////////";
 	//\x84 = ä \x94 = ö, \x86 = å.
-	cout<<"\nDeltagar hanterare 2016";
+	cout<<"\nMusik Instrument hanterare 2016";
 	cout<<"\n Tips: efter varje inmatning tryck p\x86 retur-,linefeed- eller radbrytningstangenten.\n";
-	cout<<"A: L\x84gga till en motion\x84r.\n"
-    <<"B: L\x84gga till en professionell deltagare.\n"
-    <<"C: Erh\x86ll Samtliga t\x84vlingsdeltagare.\n"
-    <<"D: Inlagda t\x84vlingsdeltagare.\n"
-    <<"E: Endast professionella deltagare.\n"
-    <<"F: Erh\x86ll antalet inlagda professionella deltagare.\n"
-    <<"G: Endast motion\x84rer.\n"
-    <<"H: Erh\x86lla antalet inlagda motion\x84rer.\n"
-    <<"I: Ta bort en t\x84vlingsdeltagare givet namnet.\n"
-    <<"J: \x84ndra antal s\x84songer som professionell f\x94r en given professionell deltagare.\n"
-    <<"K: Sortera alla t\x84vlingsdeltagare baserat p\x86 namnet.\n"
-    <<"L: Exit.\n "<<endl;
+	cout<<"A: Lägga till instrument.\n"
+    <<"B: Presentera alla instrument.\n"
+    <<"C: Presentera alla stränginstrument med all tillhörande information.\n"
+    <<"D: Presentera alla blåsinstrument med all tillhörande information.\n"
+    <<"E: Presentera alla stränginstrument vars strängantal ligger i ett givet intervall.\n"
+    <<"F: Ändra antal strängar givet stränginstrumentets namn.\n"
+    <<"G: Ta bort ett instrument.\n"
+    <<"H: Exit.\n"
+    <<endl;
 }
 void System::menu(void)
 {

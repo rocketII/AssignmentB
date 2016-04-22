@@ -1,17 +1,19 @@
 //
 // Created by bps on 2016-04-11.
 //
-//#include "register.h"
-#include "system.h"
+//#include
+//#include "system.h"
 #include <iostream>
 
 using namespace std;
 
 int main(void)
 {
-    System init;
-    init.menu();
-    //testSort.sortingByNames();
-    cout << "\nhello quit";
+    //if Linux comment bellow and use valgrind, might need header
+    //_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+    //System init;
+    //init.menu();
+
+    cout << "\nquit";
     return 0;
 }
