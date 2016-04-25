@@ -1,3 +1,4 @@
+//Roderik Bauhn
 #include "system.h"
 
 
@@ -16,10 +17,13 @@ void System::menutxt(void)const
 	
 	cout<<"\n!!![Tryck Retur tangent(d.v.s. radbrytning)]!!!";
 	getchar();
+    //on windows
 	//system("cls");
+    //on *nix systems
 	system("clear");
 	cout<<"//////////////////////////////////////////////////////////////////////////////////////";
-	//\x84 = ä \x94 = ö, \x86 = å.
+	//windows hex escape characters for åäö.
+    //\x84 = ä \x94 = ö, \x86 = å.
 	cout<<"\nMusik Instrument hanterare 2016";
 	cout<<"\n Tips: efter varje inmatning tryck p\x86 retur-,linefeed- eller radbrytningstangenten.\n";
 	cout<<"A: Lägga till instrument.\n"
@@ -32,6 +36,7 @@ void System::menutxt(void)const
     <<"H: Exit.\n"
     <<endl;
 }
+//menu logic
 void System::menu(void)
 {
 	bool flag = true;
@@ -97,7 +102,7 @@ void System::addStringInstrument(void)
 {
 	string namn;
 	int nrOfStrings=0;
-    bool knapp, stroke;
+    bool knapp, bowStroke;
     char choice=' ';
     cin.ignore();
 	cout <<"Namn?: ";
@@ -109,15 +114,15 @@ void System::addStringInstrument(void)
     cin >> choice;
     if(tolower(choice) == 'y')
     {
-        stroke = true;
-        knapp = !stroke;
-        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, stroke);
+        bowStroke = true;
+        knapp = !bowStroke;
+        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, bowStroke);
     }
     else if(tolower(choice)=='n')
     {
-        stroke = false;
-        knapp = !stroke;
-        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, stroke);
+        bowStroke = false;
+        knapp = !bowStroke;
+        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, bowStroke);
     }
     else
         cout << "fel indata!"<<endl;

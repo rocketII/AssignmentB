@@ -1,5 +1,5 @@
 //
-// Created by root on 2016-04-12.
+// Created by Roderik Bauhn on 2016-04-12.
 //
 
 #include "AirInstrument.h"

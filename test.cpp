@@ -1,17 +1,15 @@
 //
-// Created by root on 2016-04-22.
+// Created by Roderik Bauhn on 2016-04-22.
 //
-
-//string* tmp= nullptr;
-//if Linux comment bellow and use valgrind, might need header
-//_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-//StringInstrument test1("fiol",7,true,false);
-//AirInstrument test2("blockflöjt",true,false);
-//cout<<test2.toString()<<'\n';
-//StringInstrument test3 = test1;
-//AirInstrument test4 = test2;
+#include "register.h"
+#include <iostream>
+using namespace std;
 int main(void)
 {
+    //below we test copy constructor, deep copy, operator=, expansion of array and so on...
+    string* tmp= nullptr;
+    //if Linux comment bellow and use valgrind, might need header
+    //_CrtSetDbgFlag( _CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
     Register test;
     test.nyttLuftInstrument("blockflöjt",true,false);
     test.nyttStrangInstrument("fiol",7,true,false);
@@ -41,12 +39,26 @@ int main(void)
     {
         cout<<tmp[i]<<endl;
     }
+    cout <<"\n----------------\n"<<endl;
     delete[] tmp;
+    //test. copy constructor
     Register test2 = test;
     Register test3;
+    //test. operator=().
     test3 = test;
+    //test. deep copy if shallow copy removing source effects test3 data.
+    cout <<"rm: from test"<<endl;
     test.rmInstrument("blockflöjt");
     test.rmInstrument("blockflöjt");
     test.rmInstrument("fiol");
+    tmp = new string[test3.antaletInstrument()];
+    test3.AllaInstrument(tmp);
+    cout <<"rm: printing"<<endl;
+    for (int i = 0; i < test3.antaletInstrument() ; ++i)
+    {
+        cout<<tmp[i]<<endl;
+    }
+    delete[] tmp;
+    cout<<"\nExiting test suite\n"<<endl;
     return 0;
 }

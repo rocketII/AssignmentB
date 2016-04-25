@@ -1,5 +1,5 @@
 //
-// Created by root on 2016-04-12.
+// Created by Roderik Bauhn on 2016-04-12.
 //
 
 #ifndef ASSIGNMENTB_REGISTER_H
@@ -10,37 +10,42 @@
 class Register
 {
 private:
+    //manages two subclasses.
     Instrument** InstrumentLista;
+    //data
     int antalInstrument, capacitet;
 public:
     Register();
     Register(int capacitet);
+    //copy construct
     Register(const Register& orgin);
     ~Register();
+    //assignment
     Register& operator=(const Register& orgin);
+    //array expansion. used with A
     void expand();
-    //A.
+    //A.  create obj of sub class
     void nyttLuftInstrument(string namn, bool trablas, bool blackblas);
-    //A.
+    //A.   create obj of sub class
     void nyttStrangInstrument(string namn, int numberOfStrings, bool knapp, bool stroke );
-    //B.
+    //B. getter
     int antaletInstrument(void)const;
-    //B.
+    //B.  fills array with two subclass data
     void AllaInstrument(string array[]);
-    //C.
+    //C.  getter
     int antalStrangInstrument(void)const;
-    //C.
+    //C.  fills array with subclass data
     void AllaStrangInstrument(string array[]);
 
-    //D.
+    //D. getter
     int antalLuftInstrument(void)const;
-    //D.
+    //D. fills array with subclass data
     void AllaLuftInstrument(string array[]);
-    // E.
+    // E. limit data output from subclass
     string AllstrangInstrumentInIntervall(int start, int end);
-    //F
+    //F  change data by sorting with key.
     void changeNrOfStrings(int nrOfStrings, string namn);
-    // G.
+    // G. remove obj by key.
     void rmInstrument(const string Instrumentnamn);
 
 

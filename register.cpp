@@ -1,5 +1,5 @@
 //
-// Created by root on 2016-04-12.
+// Created by Roderik Bauhn on 2016-04-12.
 //
 
 #include "register.h"
@@ -51,6 +51,7 @@ Register::~Register()
 
 Register& Register::operator=(const Register &orgin)
 {
+    //uses clone() to get data transfered correct. We are using two subclasses here.
     if(this != &orgin)
     {
             for (int i = 0; i < this->antalInstrument; i++)
@@ -94,6 +95,7 @@ void Register::expand()
     {
         this->InstrumentLista[i]= tmp[i]->clone();
     }
+    //clean tmp
     for (int i = 0; i < this->antalInstrument ; ++i)
     {
         delete tmp[i];
@@ -122,17 +124,17 @@ void Register::nyttLuftInstrument(string namn, bool trablas, bool blackblas)
     }
 }
 //A.
-void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp, bool stroke)
+void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp, bool bowStroke)
 {
     if(this->antalInstrument < this->capacitet)
     {
-        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, stroke);
+        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, bowStroke);
         this->antalInstrument++;
     }
     else
     {
         expand();
-        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, stroke);
+        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, bowStroke);
         this->antalInstrument++;
     }
 }
@@ -295,7 +297,7 @@ void Register::changeNrOfStrings(int nrOfStrings, string namn)
         }
     }
 }
-// G
+// G   remove by overwriting with last place data. If one element empty data in place 0.
 void Register::rmInstrument(const string Uniktnamn)
 {
 

@@ -1,3 +1,4 @@
+//Roderik Bauhn
 #pragma once
 #include "register.h"
 #include<iostream>
@@ -6,7 +7,8 @@ using namespace std;
 class System
 {
 private:
-	/* motionar == stringInstrument
+	/* cheat sheat:
+	 *
 	 * cout<<"A: Lägga till instrument.\n"
     <<"B: Presentera alla instrument.\n"
     <<"C: Presentera alla stränginstrument med all tillhörande information.\n"
@@ -19,6 +21,7 @@ private:
 	 * */
 	string *ptr;
 	Register instance;
+    //print menu text
 	void menutxt(void)const;
     //A
     void addInstrument(void);

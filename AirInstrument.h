@@ -1,5 +1,5 @@
 //
-// Created by root on 2016-04-12.
+// Created by Roderik Bauhn on 2016-04-12.
 //
 
 #ifndef ASSIGNMENTA_PROFESSIONELL_H
@@ -13,13 +13,14 @@ class AirInstrument : public  Instrument
 {
 private:
     //träblås- eller bleckblås
+    //data
     bool trablas, bleckblas;
 
 
 public:
 
 
-
+    //functions manage get and set. prints data to string through stringstream techniques.
     AirInstrument(string namn, bool trablas, bool bleckblas);
     AirInstrument(const AirInstrument & orgin);
     AirInstrument & operator=(const AirInstrument & orgin);
@@ -27,7 +28,7 @@ public:
     virtual ~AirInstrument() { }
 
     virtual string toStringSpecific()const;
-    virtual AirInstrument * clone()const;
+
 
     bool getTrablas() const ;
 
@@ -36,7 +37,8 @@ public:
     bool getBleckblas() const ;
 
     void setBleckblas(bool bleckblas);
-
+    //used in Register Class in order to move data to another Register **array.
+    virtual AirInstrument * clone()const;
 };
 
 

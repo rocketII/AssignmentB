@@ -12,11 +12,12 @@ class StringInstrument : public  Instrument
 {
 private:
     //stråk- eller knäpp-instrument
+    //data
     bool strakInstrument;
     bool knappInstrument;
     int nrOfStrings;
 public:
-
+    //functions manage get and set. prints data to string through stringstream techniques.
     bool getStrakInstrument() const;
 
     void setStrakInstrument(bool strakInstrument);
@@ -34,10 +35,8 @@ public:
     StringInstrument& operator=(const StringInstrument & orgin);
 
     virtual ~StringInstrument() { }
-
-
-
     virtual string toStringSpecific() const;
+    //used in Register Class in order to move data to another Register **array.
     virtual StringInstrument * clone()const;
 
 };

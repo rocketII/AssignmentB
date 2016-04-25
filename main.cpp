@@ -1,5 +1,5 @@
 //
-//Created by bps on 2016-04-11.
+//Created by Roderik Bauhn on 2016-04-11.
 //
 //#include"StringInstrument.h"
 //#include "AirInstrument.h"
