@@ -4,37 +4,39 @@
 
 #ifndef ASSIGNMENTA_PROFESSIONELL_H
 #define ASSIGNMENTA_PROFESSIONELL_H
-#include"deltagare.h"
+#include "Instrument.h"
 #include <string>
 #include <sstream>
 // used to be professionell...
 using  namespace std;
-class professionell : public  deltagare
+class AirInstrument : public  Instrument
 {
 private:
-    string namn, kon, klubb;
-    int nrOfActiveSeassons;
+    //träblås- eller bleckblås
+    bool trablas, bleckblas;
+
 
 public:
 
 
 
-    professionell(string namn, string kon, string klubb, int  nrOfActiveSeassons);
-    professionell(const professionell& orgin);
-    professionell& operator=(const professionell& orgin);
+    AirInstrument(string namn, bool trablas, bool bleckblas);
+    AirInstrument(const AirInstrument & orgin);
+    AirInstrument & operator=(const AirInstrument & orgin);
 
-    virtual ~professionell() { }
-
-    const string getKlubb() const ;
-
-    void setKlubb(const string klubb);
-
-    int getNrOfActiveSeassons() const; //
-
-    void setNrOfActiveSeassons(int nrOfActiveSeassons);//
+    virtual ~AirInstrument() { }
 
     virtual string toStringSpecific()const;
-    virtual professionell* clone()const;
+    virtual AirInstrument * clone()const;
+
+    bool getTrablas() const ;
+
+    void setTrablas(bool trablas) ;
+
+    bool getBleckblas() const ;
+
+    void setBleckblas(bool bleckblas);
+
 };
 
 

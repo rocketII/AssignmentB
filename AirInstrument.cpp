@@ -4,55 +4,55 @@
 
 #include "AirInstrument.h"
 
-const string professionell::getKlubb() const
+bool AirInstrument::getTrablas() const
 {
-    return this->klubb;
+    return this->trablas;
 }
 
-void professionell::setKlubb(const string klubb)
-{
-    this->klubb = klubb;
+void AirInstrument::setTrablas(bool trablas) {
+    this->trablas = trablas;
 }
 
-int professionell::getNrOfActiveSeassons() const
+bool AirInstrument::getBleckblas() const
 {
-    return this->nrOfActiveSeassons;
+    return this->bleckblas;
 }
 
-void professionell::setNrOfActiveSeassons(int nrOfActiveSeassons)
+void AirInstrument::setBleckblas(bool bleckblas)
 {
-    this->nrOfActiveSeassons = nrOfActiveSeassons;
+    this->bleckblas = bleckblas;
 }
 
-professionell::professionell(string namn, string kon, string klubb, int  nrOfActiveSeassons) : deltagare(namn, kon), klubb(klubb), nrOfActiveSeassons(nrOfActiveSeassons)
+
+AirInstrument::AirInstrument(string namn,  bool trablas,bool bleckblas) : Instrument(namn), bleckblas(bleckblas), trablas(trablas)
 {
 
 }
 
-string professionell::toStringSpecific() const
+string AirInstrument::toStringSpecific() const
 {
     stringstream rr;
-    rr << "\nklubb: " << this->klubb << "\nAntal aktiva sässonger: " << this->nrOfActiveSeassons;
+    rr << "\nBleckblås: " << this->bleckblas << "\n:Träblås: " << this->trablas;
     return rr.str();
 }
 
-professionell *professionell::clone() const {
-    return new professionell(*this);
+AirInstrument *AirInstrument::clone() const {
+    return new AirInstrument(*this);
 }
 
-professionell::professionell(const professionell &orgin) : deltagare(orgin)
+AirInstrument::AirInstrument(const AirInstrument &orgin) : Instrument(orgin)
 {
-    this->klubb=orgin.klubb;
-    this->nrOfActiveSeassons=orgin.nrOfActiveSeassons;
+    this->bleckblas = orgin.bleckblas;
+    this->trablas = orgin.trablas;
 }
 
-professionell &professionell::operator=(const professionell &orgin)
+AirInstrument &AirInstrument::operator=(const AirInstrument &orgin)
 {
     if(this != &orgin)
     {
-        deltagare::operator=(orgin);
-        this->nrOfActiveSeassons = orgin.nrOfActiveSeassons;
-        this->klubb = orgin.klubb;
+        Instrument::operator=(orgin);
+        this->bleckblas = orgin.bleckblas;
+        this->trablas = orgin.trablas;
     }
     return *this;
 }

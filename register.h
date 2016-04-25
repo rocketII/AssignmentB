@@ -10,30 +10,38 @@
 class Register
 {
 private:
-    deltagare** deltagarLista;
-    int antalDeltagare, capacitet;
-    void quickSort(Register& orgin, int start, int end);
-    int partition(Register& orgin, int start, int end);
-    void swapI(Register& source,int index1, Register& orgin , int index2);
+    Instrument** InstrumentLista;
+    int antalInstrument, capacitet;
 public:
     Register();
     Register(int capacitet);
     Register(const Register& orgin);
     ~Register();
     Register& operator=(const Register& orgin);
-    bool operator<(const Register& orgin);
     void expand();
-    void nyProfessionellDeltagare(string namn, string kon, string klubb, int aktivaPerioder);
-    void nyMotionarDeltagare(string namn, string kon, int gammal);
-    int antaletDeltagare(void)const;
-    int antalProffs(void)const;
-    int antalMotionarer(void)const;
-    void AllaDeltagare(string array[]);
-    void AllaMotionarer(string array[]);
-    void AllaProffs(string array[]);
-    void rmDeltagare(const string Uniktnamn);
-    void setProffsActiveYears(int yearInService, string namn);
-    void sortingByNames(void);
+    //1.
+    void nyttLuftInstrument(string namn, bool trablas, bool blackblas);
+    //1.
+    void nyttStrangInstrument(string namn, int numberOfStrings, bool knapp, bool stroke );
+    //2.
+    int antaletInstrument(void)const;
+    //2.
+    void AllaInstrument(string array[]);
+    //3.
+    int antalStrangInstrument(void)const;
+    //3.
+    void AllaStrangInstrument(string array[]);
+
+    //4.
+    int antalLuftInstrument(void)const;
+    //4.
+    void AllaLuftInstrument(string array[]);
+    // 5.
+    string AllstrangInstrumentInIntervall(int start, int end);
+    //6
+    void changeNrOfStrings(int nrOfStrings, string namn);
+    // 7.
+    void rmInstrument(const string Instrumentnamn);
 
     //int getProffsActiveYears(string namn); Debug mode only!!!
 };

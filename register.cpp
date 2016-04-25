@@ -4,36 +4,35 @@
 
 #include "register.h"
 #include <typeinfo>
-#include <algorithm>
 using namespace std;
 Register::Register()
 {
     this->capacitet=1;
-    this->antalDeltagare=0;
-    this->deltagarLista  = new deltagare*[this->capacitet];
+    this->antalInstrument=0;
+    this->InstrumentLista  = new Instrument*[this->capacitet];
 }
 
 Register::Register(int capacity)
 {
     this->capacitet = capacity;
-    this->antalDeltagare=0;
-    this->deltagarLista  = new deltagare*[this->capacitet];
+    this->antalInstrument=0;
+    this->InstrumentLista  = new Instrument*[this->capacitet];
 }
 
 Register::Register(const Register& orgin)
 {
     this->capacitet = orgin.capacitet;
-    this->antalDeltagare=orgin.antalDeltagare;
-    this->deltagarLista = new deltagare*[this->capacitet];
-    for (int i = 0; i < this->antalDeltagare ; ++i)
+    this->antalInstrument=orgin.antalInstrument;
+    this->InstrumentLista = new Instrument*[this->capacitet];
+    for (int i = 0; i < this->antalInstrument ; ++i)
     {
-        if(typeid(*orgin.deltagarLista[i])==typeid(professionell))
+        if(typeid(*orgin.InstrumentLista[i])==typeid(AirInstrument))
         {
-            this->deltagarLista[i]= new professionell(*((professionell*)orgin.deltagarLista[i]));
+            this->InstrumentLista[i]= new AirInstrument(*((AirInstrument*)orgin.InstrumentLista[i]));
         }
         else
         {
-            this->deltagarLista[i]= new motionar(*((motionar*)orgin.deltagarLista[i]));
+            this->InstrumentLista[i]= new StringInstrument(*((StringInstrument*)orgin.InstrumentLista[i]));
         }
 
     }
@@ -41,12 +40,12 @@ Register::Register(const Register& orgin)
 
 Register::~Register()
 {
-    for (int i = 0; i < this->antalDeltagare ; ++i)
+    for (int i = 0; i < this->antalInstrument ; ++i)
     {
-        delete this->deltagarLista[i];
+        delete this->InstrumentLista[i];
 
     }
-    delete[] this->deltagarLista;
+    delete[] this->InstrumentLista;
 
 }
 
@@ -54,79 +53,121 @@ Register& Register::operator=(const Register &orgin)
 {
     if(this != &orgin)
     {
-            for (int i = 0; i < this->antalDeltagare; i++) {
-                delete this->deltagarLista[i];
+            for (int i = 0; i < this->antalInstrument; i++)
+            {
+                delete this->InstrumentLista[i];
             }
-            delete[] this->deltagarLista;
+            delete[] this->InstrumentLista;
 
-            this->antalDeltagare = orgin.antalDeltagare;
+            this->antalInstrument = orgin.antalInstrument;
             this->capacitet = orgin.capacitet;
-            this->deltagarLista = new deltagare *[this->capacitet];
-            for (int i = 0; i < this->antalDeltagare; i++) {
-                this->deltagarLista[i] = orgin.deltagarLista[i]->clone();
+            this->InstrumentLista = new Instrument *[this->capacitet];
+            for (int i = 0; i < this->antalInstrument; i++) {
+                this->InstrumentLista[i] = orgin.InstrumentLista[i]->clone();
             }
 
     }
     return *this;
 }
-//needs expansion part
-void Register::nyProfessionellDeltagare(string namn, string kon, string klubb, int aktivaPerioder)
+
+void Register::expand()
 {
-    if(this->antalDeltagare < this->capacitet)
+    //skapa tmp behållare för klass obj ptr
+    Instrument** tmp= new Instrument*[this->antaletInstrument()];
+
+    //copy: från this[] till tmp[]
+    for (int i = 0; i < this->antalInstrument ; ++i)
     {
-        this->deltagarLista[this->antalDeltagare] = new professionell(namn, kon, klubb, aktivaPerioder);
-        this->antalDeltagare++;
+        tmp[i] = this->InstrumentLista[i]->clone();
+    }
+    //rm: this[]
+    for (int i = 0; i < this->antalInstrument ; ++i)
+    {
+        delete this->InstrumentLista[i];
+    }
+    delete[] this->InstrumentLista;
+    //new: större this[]. gör  capacity större.
+    this->InstrumentLista= new Instrument*[this->capacitet+3];
+    this->capacitet += 3;
+    //copy: tmp[] till this[]
+    for (int i = 0; i < this->antalInstrument ; ++i)
+    {
+        this->InstrumentLista[i]= tmp[i]->clone();
+    }
+}
+
+/////////////////////////////////////////////////////
+
+
+////////////////////////////////////////////////////
+
+//1.
+void Register::nyttLuftInstrument(string namn, bool trablas, bool blackblas)
+{
+    if(this->antalInstrument < this->capacitet)
+    {
+        this->InstrumentLista[this->antalInstrument] = new AirInstrument(namn, trablas, blackblas);
+        this->antalInstrument++;
     }
     else
     {
         expand();
-        ;
+        this->InstrumentLista[this->antalInstrument] = new AirInstrument(namn, trablas, blackblas);
+        this->antalInstrument++;
     }
 }
-//needs expansion part
-void Register::nyMotionarDeltagare(string namn, string kon, int gammal)
+//1.
+void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp, bool stroke)
 {
-    if(this->antalDeltagare < this->capacitet)
+    if(this->antalInstrument < this->capacitet)
     {
-        this->deltagarLista[this->antalDeltagare] = new motionar(namn, kon, gammal);
-        this->antalDeltagare++;
+        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, stroke);
+        this->antalInstrument++;
     }
     else
     {
         expand();
-        this->deltagarLista[this->antalDeltagare] = new motionar(namn, kon, gammal);
-        this->antalDeltagare++;
+        this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, stroke);
+        this->antalInstrument++;
     }
 }
-
-int Register::antaletDeltagare() const
+//2.
+int Register::antaletInstrument() const
 {
-    return this->antalDeltagare;
+    return this->antalInstrument;
 }
-
-int Register::antalMotionarer() const
+//2.
+void Register::AllaInstrument(string *array)
+{
+    for (int i = 0; i < this->antaletInstrument() ; ++i)
+    {
+      array[i] = this->InstrumentLista[i]->toString();
+    }
+}
+//3.
+int Register::antalStrangInstrument() const
 {
     int counter=0;
-    if(this->antaletDeltagare() > 0)
+    if(this->antaletInstrument() > 0)
     {
-        if(this->antaletDeltagare() == 1)
+        if(this->antaletInstrument() == 1)
         {
-            if (typeid(this->deltagarLista[0]) == typeid(motionar))
+            if (typeid(this->InstrumentLista[0]) == typeid(AirInstrument))
             {
-                for (int i = 0; i < this->antaletDeltagare(); i++)
+                for (int i = 0; i < this->antalInstrument; i++)
                 {
-                    if (typeid(*this->deltagarLista[i]) == typeid(motionar))
+                    if (typeid(*this->InstrumentLista[i]) == typeid(AirInstrument))
                     {
                         counter++;
                     }
                 }
             }
         }
-        if(this->antaletDeltagare() > 1)
+        if(this->antaletInstrument() > 1)
         {
-            for (int i = 0; i < this->antaletDeltagare(); i++)
+            for (int i = 0; i < this->antalInstrument; i++)
             {
-                if (typeid(*this->deltagarLista[i]) == typeid(motionar))
+                if (typeid(*this->InstrumentLista[i]) == typeid(AirInstrument))
                 {
                     counter++;
                 }
@@ -135,30 +176,57 @@ int Register::antalMotionarer() const
     }
     return counter;
 }
-
-int Register::antalProffs() const
+//3.
+void Register::AllaStrangInstrument(string *array)
+{
+    int q=0;
+    if(this->antaletInstrument() == 1)
+    {
+        if(typeid(*this->InstrumentLista[0]) == typeid(StringInstrument))
+        {
+            for (int i = 0; i < this->antaletInstrument(); ++i)
+            {
+                array[q] = this->InstrumentLista[0]->toString();
+                q++;
+            }
+        }
+    }
+    if(this->antaletInstrument() > 1)
+    {
+        for (int i = 0; i < this->antaletInstrument() ; ++i)
+        {
+            if(typeid(*this->InstrumentLista[i])== typeid(StringInstrument))
+            {
+                array[q] = this->InstrumentLista[i]->toString();
+                q++;
+            }
+        }
+    }
+}
+//4.
+int Register::antalLuftInstrument() const
 {
     int counter=0;
-    if(this->antaletDeltagare() > 0)
+    if(this->antaletInstrument() > 0)
     {
-        if(this->antaletDeltagare() == 1)
+        if(this->antaletInstrument() == 1)
         {
-            if (typeid(this->deltagarLista[0]) == typeid(professionell))
+            if (typeid(this->InstrumentLista[0]) == typeid(StringInstrument))
             {
-                for (int i = 0; i < this->antalDeltagare; i++)
+                for (int i = 0; i < this->antaletInstrument(); i++)
                 {
-                    if (typeid(*this->deltagarLista[i]) == typeid(professionell))
+                    if (typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
                     {
                         counter++;
                     }
                 }
             }
         }
-        if(this->antaletDeltagare() > 1)
+        if(this->antaletInstrument() > 1)
         {
-            for (int i = 0; i < this->antalDeltagare; i++)
+            for (int i = 0; i < this->antaletInstrument(); i++)
             {
-                if (typeid(*this->deltagarLista[i]) == typeid(professionell))
+                if (typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
                 {
                     counter++;
                 }
@@ -167,228 +235,82 @@ int Register::antalProffs() const
     }
     return counter;
 }
-
-void Register::AllaDeltagare(string *array)
-{
-    for (int i = 0; i < this->antaletDeltagare() ; ++i)
-    {
-      array[i] = this->deltagarLista[i]->toString();
-    }
-}
-
-void Register::AllaProffs(string *array)
+//4.
+void Register::AllaLuftInstrument(string *array)
 {
     int p = 0;
-    if(this->antaletDeltagare() == 1)
+    if(this->antaletInstrument() == 1)
     {
-        if(typeid(*this->deltagarLista[0]) == typeid(professionell))
+        if(typeid(*this->InstrumentLista[0]) == typeid(AirInstrument))
         {
-            array[p] = this->deltagarLista[0]->toString();
+            array[p] = this->InstrumentLista[0]->toString();
             p++;
         }
     }
-    if(this->antaletDeltagare() > 1)
+    if(this->antaletInstrument() > 1)
     {
-        for (int i = 0; i < this->antaletDeltagare() ; ++i)
+        for (int i = 0; i < this->antaletInstrument() ; ++i)
         {
-            if(typeid(*this->deltagarLista[i])== typeid(professionell))
+            if(typeid(*this->InstrumentLista[i])== typeid(AirInstrument))
             {
-                array[p] = this->deltagarLista[i]->toString();
+                array[p] = this->InstrumentLista[i]->toString();
                 p++;
             }
         }
     }
 }
-
-void Register::AllaMotionarer(string *array)
-{
-    int q=0;
-    if(this->antaletDeltagare() == 1)
+//5.
+string Register::AllstrangInstrumentInIntervall(int start, int end)
+ {
+    stringstream ll;
+    for (int i = 0; i < this->antaletInstrument() ; ++i)
     {
-        if(typeid(*this->deltagarLista[0]) == typeid(motionar)) //Bugg.
+        if(typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
         {
-            for (int i = 0; i < this->antaletDeltagare(); ++i)
+            if ((dynamic_cast<StringInstrument*>(this->InstrumentLista[i]))->getNrOfStrings() >= start && (dynamic_cast<StringInstrument*>(this->InstrumentLista[i]))->getNrOfStrings() <= end)
             {
-                array[q] = this->deltagarLista[0]->toString();
-                q++;
+                ll << this->InstrumentLista[i]->toString();
             }
         }
     }
-    if(this->antaletDeltagare() > 1)
-    {
-        for (int i = 0; i < this->antaletDeltagare() ; ++i)
-        {
-            if(typeid(*this->deltagarLista[i])== typeid(motionar))
-            {
-                array[q] = this->deltagarLista[i]->toString();
-                q++;
-            }
-        }
-    }
+    return ll.str();
 }
-
-void Register::rmDeltagare(const string Uniktnamn)
+//6.
+void Register::changeNrOfStrings(int nrOfStrings, string namn)
 {
-
-    for (int i = 0; i < this->antaletDeltagare() ; ++i)
+    for (int i = 0; i < this->antaletInstrument() ; ++i)
     {
-
-        if(this->deltagarLista[i]->getNamn() == Uniktnamn )
+        if(typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
         {
-            if(this->antaletDeltagare() == 1)
+            if (this->InstrumentLista[i]->getNamn() == namn)
             {
-                delete this->deltagarLista[0];
-                this->deltagarLista[0] = nullptr;
-                this->antalDeltagare--;
-            }
-            if(this->antaletDeltagare() > 1)
-            {
-                //stoppa allt.
-                this->deltagarLista[i]->setNamn( this->deltagarLista[this->antaletDeltagare() - 1]->getNamn());
-                this->deltagarLista[i]->setKon( this->deltagarLista[this->antaletDeltagare() - 1]->getKon());
-                delete this->deltagarLista[this->antaletDeltagare() - 1];
-                this->deltagarLista[this->antaletDeltagare()-1]= nullptr;
-                this->antalDeltagare--;
+                (dynamic_cast<StringInstrument*>(this->InstrumentLista[i]))->setNrOfStrings(nrOfStrings);
             }
         }
     }
 }
-
-
-void Register::setProffsActiveYears(int yearInService, string namn)
+// 7
+void Register::rmInstrument(const string Uniktnamn)
 {
-    professionell* ptr2Human= nullptr;
-    for (int i = 0; i < this->antaletDeltagare() ; ++i)
+
+    for (int i = 0; i < this->antaletInstrument() ; ++i)
     {
-        ptr2Human = dynamic_cast<professionell*>(this->deltagarLista[i]);
-        if(ptr2Human != NULL && this->deltagarLista[i]->getNamn() == namn)
+
+        if(this->InstrumentLista[i]->getNamn() == Uniktnamn )
         {
-            ptr2Human->setNrOfActiveSeassons(yearInService);
+            if(this->antaletInstrument() == 1)
+            {
+                delete this->InstrumentLista[0];
+                this->InstrumentLista[0] = nullptr;
+                this->antalInstrument--;
+            }
+            if(this->antaletInstrument() > 1)
+            {
+                this->InstrumentLista[i]->setNamn( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn());
+                delete this->InstrumentLista[this->antaletInstrument() - 1];
+                this->InstrumentLista[this->antaletInstrument()-1] = nullptr;
+                this->antalInstrument--;
+            }
         }
     }
-
 }
-
-/*
-int Register::getProffsActiveYears(string namn)
-{
-    professionell* ptr2Human= nullptr;
-    for (int i = 0; i < this->antaletDeltagare() ; ++i)
-    {
-        ptr2Human = dynamic_cast<professionell*>(this->deltagarLista[i]);
-        if(ptr2Human != NULL && this->deltagarLista[i]->getNamn() == namn)
-        {
-            return ptr2Human->getNrOfActiveSeassons();
-        }
-    }
-    return -1;
-}
-*/ //debug only
-
-void Register::expand()
-{
-    //skapa tmp behållare för klass obj ptr
-    deltagare** tmp= new deltagare*[this->antaletDeltagare()];
-
-    //copy: från this[] till tmp[]
-    for (int i = 0; i < this->antalDeltagare ; ++i)
-    {
-        tmp[i] = this->deltagarLista[i]->clone();
-    }
-    //rm: this[]
-    for (int i = 0; i < this->antalDeltagare ; ++i)
-    {
-        delete this->deltagarLista[i];
-    }
-    delete[] this->deltagarLista;
-    //new: större this[]. gör  capacity större.
-    this->deltagarLista= new deltagare*[this->capacitet+3];
-    this->capacitet += 3;
-    //copy: tmp[] till this[]
-    for (int i = 0; i < this->antalDeltagare ; ++i)
-    {
-        this->deltagarLista[i]= tmp[i]->clone();
-    }
-}
-//sorting relevant
-/*
-template <typename T>//only one function at a time.
-void quickSort(T arr[], int start, int end)
-{
-    if(start < end)
-    {
-        int pivot = partition(arr, start, end);
-        quickSort(arr, start, pivot-1);
-        quickSort(arr, pivot+1, end);
-    }
-
-}
-
-template <typename T>
-int partition(T theArray[], int start, int end)
-{
-    T pivotValue = theArray[start];
-    int pivotPos=start;
-    for(int i=start+1; i<=end;i++)
-    {
-        if(theArray[i]<pivotValue)
-        {
-            swapI(theArray[i], theArray[pivotPos+1]);
-            swapI(theArray[pivotPos], theArray[pivotPos+1]);
-            pivotPos++;
-        }
-    }
-    return pivotPos;
-}
- */
-bool Register::operator<(const Register &orgin)
-{
-    bool flag= false;
-    ;
-    return flag;
-}
-
-void Register::sortingByNames(void)
-{
-    //quicksort algorithm by C. A. R. Hoare, 1960    deltagare *orgin, int start, int end
-    this->quickSort(*this, 0, this->antalDeltagare);
-
-}
-
-
-void Register::quickSort(Register& orgin, int start, int end)
-{
-    if(start < end)
-    {
-        int pivot = partition(orgin, start, end);
-        quickSort(orgin, start, pivot-1);
-        quickSort(orgin, pivot+1, end);
-    }
-
-}
-
-int Register::partition(Register& orgin, int start, int end)
-{
-    string pivotValue = orgin.deltagarLista[start]->getNamn();
-    int pivotPos=start;
-    for(int i=start+1; i<=end;i++)
-    {
-        if(orgin.deltagarLista[i]->getNamn()<pivotValue)
-        {
-            swapI(orgin, i, orgin, pivotPos+1);
-            swapI(orgin, i, orgin, pivotPos+1);
-            pivotPos++;
-        }
-    }
-    return pivotPos;
-}
-
-void Register::swapI(Register& source,int index1, Register& orgin , int index2)
-{
-    deltagare* tmp = source.deltagarLista[index1]->clone();
-    delete source.deltagarLista[index1];
-    source.deltagarLista[index1] = orgin.deltagarLista[index2]->clone();
-    orgin.deltagarLista[index2] = tmp;
-}
-
-

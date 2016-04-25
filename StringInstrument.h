@@ -1,33 +1,44 @@
 //
-// Created by root on 2016-04-12.
+// Created by Roderik Bauhn on 2016-04-12.
 //used to be motionar.
 
 #ifndef ASSIGNMENTA_MOTIONAR_H
 #define ASSIGNMENTA_MOTIONAR_H
 
-#include "deltagare.h"
+#include "Instrument.h"
 #include <string>
 using namespace std;
-class motionar : public  deltagare
+class StringInstrument : public  Instrument
 {
 private:
-    string namn, kon;
-    int alder;
+    //stråk- eller knäpp-instrument
+    bool strakInstrument;
+    bool knappInstrument;
+    int nrOfStrings;
 public:
 
+    bool getStrakInstrument() const;
 
-    motionar(const string namn, const string kon, int alder) : deltagare(namn, kon), alder(alder) { }
-    motionar(const motionar& orgin);
-    motionar& operator=(const motionar& orgin);
+    void setStrakInstrument(bool strakInstrument);
 
-    virtual ~motionar() { }
+    bool getKnappInstrument() const;
 
-    int getAlder() const;
+    void setKnappInstrument(bool knappInstrument);
 
-    void setAlder(int alder);
+    int getNrOfStrings() const ;
+    void setNrOfStrings(int nrOfStrings) ;
+
+    StringInstrument(const string namn, int nrOfStrings, bool strakInstrument, bool knappInstrument) : Instrument(namn), nrOfStrings(nrOfStrings), strakInstrument(strakInstrument), knappInstrument(knappInstrument)
+    {    }
+    StringInstrument(const StringInstrument & orgin);
+    StringInstrument& operator=(const StringInstrument & orgin);
+
+    virtual ~StringInstrument() { }
+
+
 
     virtual string toStringSpecific() const;
-    virtual motionar* clone()const;
+    virtual StringInstrument * clone()const;
 
 };
 
