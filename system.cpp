@@ -46,170 +46,222 @@ void System::menu(void)
 		switch(toupper(choice))
 		{
 		case 'A':
-			this->addMotionar();
+			this->addInstrument();
 			break;
 		case 'B':
-			this->addProffs();
+			this->toString_InstrumentData();
 			break;
 		case 'C':
-			this->toString_registerData();
+			this->toString_StringInstruments();
 			break;
 		case 'D':
-			cout << this->getNrOfPlayers();
+			this->toString_luftInstrument();
 			break;
 		case 'E':
-			this->toString_proPlayers();
+			this->getStringInstrumentWithinIntervall();
 			break;
 		case 'F':
-			cout << this->getNrOfProPlayers();
+            this->findInstrumentChangeNrOfStrings();
 			break;
 		case 'G':
-			this->toString_motionarPlayers();
-			break;
-		case 'H':
-			cout << this->getNrOfMotionarer()+1;
-			break;
-		case 'I':
 			this->rmPlayer();
 			break;
-		case 'j':
-			this->changeProPlayerYearInService();
-			break;
-		case 'K':
-			this->sortPlayersByNames();
-			break;
-		case 'L':
-			flag = false;
+		case 'H':
+            flag = false;
 			break;
 		};
 		fflush(stdin);
-	} while (flag == true);
+	} while (flag);
 }
-
-void System::addMotionar(void)
+//A.
+void System::addInstrument(void)
 {
-	string namn, gender;
-	int age=0;
+    char choice = ' ';
+    cout <<"Press one key y för Sträng Instrument n för blås: "<<endl;
+    choice = getchar();
+    if(tolower(choice) == 'y')
+    {
+        this->addStringInstrument();
+    }
+    else if(tolower(choice) == 'n')
+    {
+        this->addAirInstrument();
+    }
+    else
+    {
+        cout <<"Fel indata"<<endl;
+    }
+}
+//A.
+void System::addStringInstrument(void)
+{
+	string namn;
+	int nrOfStrings=0;
+    bool knapp, stroke;
+    char choice=' ';
+    cin.ignore();
 	cout <<"Namn?: ";
 	getline(cin, namn);
-	cout <<"K\x94n?: ";
-	getline(cin, gender);
-	cout <<"\x86lder?: ";
-	cin >> age;
-	this->instance.nyMotionarDeltagare(namn, gender ,age);
+	cout <<"Antal strängar?: ";
+    cin >> nrOfStrings;
+    cin.ignore();
+	cout <<"str\x86ke?(y/n): ";
+    cin >> choice;
+    if(tolower(choice) == 'y')
+    {
+        stroke = true;
+        knapp = !stroke;
+        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, stroke);
+    }
+    else if(tolower(choice)=='n')
+    {
+        stroke = false;
+        knapp = !stroke;
+        this->instance.nyttStrangInstrument(namn, nrOfStrings, knapp, stroke);
+    }
+    else
+        cout << "fel indata!"<<endl;
+
+
 }
-void System::addProffs(void)
+//A.
+void System::addAirInstrument(void)
 {
-    string namn, gender, klubb;
-    int yearInService=0;
+    string namn;
+    bool blackblas, trablas;
+    char choice=' ';
     cout <<"Namn?: ";
+    cin.ignore();
     getline(cin, namn);
-    cout <<"K\x94n?: ";
-    getline(cin, gender);
-    cout <<"Klubb?: ";
-    getline(cin, klubb);
-    cout <<"\x86r som proffs?: ";
-    cin >> yearInService;
-    this->instance.nyProfessionellDeltagare(namn, gender, klubb, yearInService);
+    cout <<"träbl\x86s?(y/n): ";
+    cin >> choice;
+    cin.ignore();
+    if(tolower(choice) == 'y')
+    {
+        trablas = true;
+        blackblas = !trablas;
+        this->instance.nyttLuftInstrument(namn, blackblas, trablas);
+    }
+    else if(tolower(choice)=='n')
+    {
+        trablas = false;
+        blackblas = !trablas;
+        this->instance.nyttLuftInstrument(namn, blackblas, trablas);
+    }
+    else
+        cout << "fel indata!"<<endl;
 }
-void System::toString_registerData(void)
+//B.
+void System::toString_InstrumentData(void)
 {
     delete this->ptr;
     this->ptr= nullptr;
-    if(this->getNrOfPlayers() == 0)
+    if(this->getNrOfInstruments() == 0)
     {
         this->ptr = new string[1];
         this->ptr[0]="empty";
     }
     else
     {
-        this->ptr = new string[this->getNrOfPlayers()];
-        this->instance.AllaDeltagare(ptr);
+        this->ptr = new string[this->getNrOfInstruments()];
+        this->instance.AllaInstrument(ptr);
     }
     cout<<"--------------------------------";
-    for (int i = 0; i < this->getNrOfPlayers() ; ++i)
+    for (int i = 0; i < this->getNrOfInstruments() ; ++i)
     {
         cout << this->ptr[i];
     }
     delete[] this->ptr;
     this->ptr= nullptr;
 }
-int System::getNrOfPlayers(void)const
+//B.
+int System::getNrOfInstruments(void)const
 {
-    return this->instance.antaletDeltagare();
+    return this->instance.antaletInstrument();
 }
-void System::toString_proPlayers(void)
+//C.
+void System::toString_StringInstruments(void)
 {
     delete this->ptr;
     this->ptr= nullptr;
-    if(this->getNrOfPlayers() == 0)
+    if(this->getNrOfInstruments() == 0)
     {
         this->ptr = new string[1];
         this->ptr[0]="empty";
     }
     else
     {
-        this->ptr = new string[this->getNrOfProPlayers()];
-        this->instance.AllaProffs(ptr);
+        this->ptr = new string[this->getNrOfStringInstruments()];
+        this->instance.AllaStrangInstrument(ptr);
     }
     cout<<"--------------------------------";
-    for (int i = 0; i < this->getNrOfProPlayers() ; ++i)
+    for (int i = 0; i < this->getNrOfStringInstruments(); ++i)
     {
-        cout << this->ptr[i];
-    }
-    delete[] this->ptr;
-    this->ptr= nullptr;
-}
-int System::getNrOfProPlayers(void)const
-{
-    return this->instance.antalProffs();
-}
-void System::toString_motionarPlayers(void)
-{
-    delete this->ptr;
-    this->ptr= nullptr;
-    if(this->getNrOfPlayers() == 0)
-    {
-        this->ptr = new string[1];
-        this->ptr[0]="empty";
-    }
-    else
-    {
-        this->ptr = new string[this->getNrOfPlayers()];
-        this->instance.AllaDeltagare(ptr);
-    }
-    cout<<"--------------------------------";
-    for (int i = 0; i < this->getNrOfPlayers() ; ++i)
-    {
-       cout <<  this->ptr[i];
+        cout <<  this->ptr[i];
     }
     delete[] this->ptr;
     this->ptr = nullptr;
 }
-int System::getNrOfMotionarer(void)const
+//C.
+int System::getNrOfStringInstruments(void)const
 {
-    return this->instance.antalMotionarer();
+    return this->instance.antalStrangInstrument();
 }
+//D.
+void System::toString_luftInstrument(void)
+{
+    delete this->ptr;
+    this->ptr= nullptr;
+    if(this->getNrOfInstruments() == 0)
+    {
+        this->ptr = new string[1];
+        this->ptr[0]="empty";
+    }
+    else
+    {
+        this->ptr = new string[this->getNrOfLuftInstrument()];
+        this->instance.AllaLuftInstrument(ptr);
+    }
+    cout<<"--------------------------------";
+    for (int i = 0; i < this->getNrOfLuftInstrument() ; ++i)
+    {
+        cout << this->ptr[i];
+    }
+    delete[] this->ptr;
+    this->ptr= nullptr;
+}
+//D.
+int System::getNrOfLuftInstrument(void)const
+{
+    return this->instance.antalLuftInstrument();
+}
+//E.
+void System::getStringInstrumentWithinIntervall(void)
+{
+    int min, max;
+    cout<<"\nAnge minsta stråke följt av retur:";
+    cin >> min >> max;
+    cout << this->instance.AllstrangInstrumentInIntervall(min, max);
+}
+//F.
+void System::findInstrumentChangeNrOfStrings(void)
+{
+    string namnA;
+    int strings;
+    cout<<"\n Instrument namn: ";
+    getline(cin, namnA);
+    cout<<"\n Instruments nya antal strängar: ";
+    cin >> strings;
+    this->instance.changeNrOfStrings(strings, namnA);
+}
+//G.
 void System::rmPlayer(void)
 {
     string namn;
     cout <<"Namn?: ";
     getline(cin, namn);
-    this->instance.rmDeltagare(namn);
+    this->instance.rmInstrument(namn);
 }
-void System::changeProPlayerYearInService(void)
-{
-    string namnDelta;
-    int yearInService=-1;
-    int change=-1;
-    cout <<"Namn: ";
-    getline(cin, namnDelta);
-    cout <<"\x84ndra med x \x86r?\nx= ";
-    cin >> yearInService;
-    this->instance.setProffsActiveYears(yearInService, namnDelta);
-}
-void System::sortPlayersByNames(void)
-{
-    this->instance.sortingByNames();
-}
+
+
 
