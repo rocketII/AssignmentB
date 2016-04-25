@@ -94,6 +94,11 @@ void Register::expand()
     {
         this->InstrumentLista[i]= tmp[i]->clone();
     }
+    for (int i = 0; i < this->antalInstrument ; ++i)
+    {
+        delete tmp[i];
+    }
+    delete[] tmp;
 }
 
 /////////////////////////////////////////////////////
@@ -101,7 +106,7 @@ void Register::expand()
 
 ////////////////////////////////////////////////////
 
-//1.
+//A.
 void Register::nyttLuftInstrument(string namn, bool trablas, bool blackblas)
 {
     if(this->antalInstrument < this->capacitet)
@@ -116,7 +121,7 @@ void Register::nyttLuftInstrument(string namn, bool trablas, bool blackblas)
         this->antalInstrument++;
     }
 }
-//1.
+//A.
 void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp, bool stroke)
 {
     if(this->antalInstrument < this->capacitet)
@@ -131,12 +136,12 @@ void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp,
         this->antalInstrument++;
     }
 }
-//2.
+//B.
 int Register::antaletInstrument() const
 {
     return this->antalInstrument;
 }
-//2.
+//B.
 void Register::AllaInstrument(string *array)
 {
     for (int i = 0; i < this->antaletInstrument() ; ++i)
@@ -144,7 +149,7 @@ void Register::AllaInstrument(string *array)
       array[i] = this->InstrumentLista[i]->toString();
     }
 }
-//3.
+//C.
 int Register::antalStrangInstrument() const
 {
     int counter=0;
@@ -152,11 +157,11 @@ int Register::antalStrangInstrument() const
     {
         if(this->antaletInstrument() == 1)
         {
-            if (typeid(this->InstrumentLista[0]) == typeid(AirInstrument))
+            if (typeid(this->InstrumentLista[0]) == typeid(StringInstrument))
             {
                 for (int i = 0; i < this->antalInstrument; i++)
                 {
-                    if (typeid(*this->InstrumentLista[i]) == typeid(AirInstrument))
+                    if (typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
                     {
                         counter++;
                     }
@@ -167,7 +172,7 @@ int Register::antalStrangInstrument() const
         {
             for (int i = 0; i < this->antalInstrument; i++)
             {
-                if (typeid(*this->InstrumentLista[i]) == typeid(AirInstrument))
+                if (typeid(*this->InstrumentLista[i]) == typeid(StringInstrument))
                 {
                     counter++;
                 }
@@ -176,7 +181,7 @@ int Register::antalStrangInstrument() const
     }
     return counter;
 }
-//3.
+//C.
 void Register::AllaStrangInstrument(string *array)
 {
     int q=0;
@@ -204,7 +209,7 @@ void Register::AllaStrangInstrument(string *array)
         }
     }
 }
-//4.
+//D.
 int Register::antalLuftInstrument() const
 {
     int counter=0;
@@ -236,7 +241,7 @@ int Register::antalLuftInstrument() const
     }
     return counter;
 }
-//4.
+//D.
 void Register::AllaLuftInstrument(string *array)
 {
     int p = 0;
@@ -260,7 +265,7 @@ void Register::AllaLuftInstrument(string *array)
         }
     }
 }
-//5.
+//E.
 string Register::AllstrangInstrumentInIntervall(int start, int end)
  {
     stringstream ll;
@@ -276,7 +281,7 @@ string Register::AllstrangInstrumentInIntervall(int start, int end)
     }
     return ll.str();
 }
-//6.
+//F.
 void Register::changeNrOfStrings(int nrOfStrings, string namn)
 {
     for (int i = 0; i < this->antaletInstrument() ; ++i)
@@ -290,7 +295,7 @@ void Register::changeNrOfStrings(int nrOfStrings, string namn)
         }
     }
 }
-// 7
+// G
 void Register::rmInstrument(const string Uniktnamn)
 {
 

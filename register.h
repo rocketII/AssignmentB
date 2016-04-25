@@ -19,30 +19,30 @@ public:
     ~Register();
     Register& operator=(const Register& orgin);
     void expand();
-    //1.
+    //A.
     void nyttLuftInstrument(string namn, bool trablas, bool blackblas);
-    //1.
+    //A.
     void nyttStrangInstrument(string namn, int numberOfStrings, bool knapp, bool stroke );
-    //2.
+    //B.
     int antaletInstrument(void)const;
-    //2.
+    //B.
     void AllaInstrument(string array[]);
-    //3.
+    //C.
     int antalStrangInstrument(void)const;
-    //3.
+    //C.
     void AllaStrangInstrument(string array[]);
 
-    //4.
+    //D.
     int antalLuftInstrument(void)const;
-    //4.
+    //D.
     void AllaLuftInstrument(string array[]);
-    // 5.
+    // E.
     string AllstrangInstrumentInIntervall(int start, int end);
-    //6
+    //F
     void changeNrOfStrings(int nrOfStrings, string namn);
-    // 7.
+    // G.
     void rmInstrument(const string Instrumentnamn);
 
-    //int getProffsActiveYears(string namn); Debug mode only!!!
+
 };
 #endif //ASSIGNMENTB_REGISTER_H_H

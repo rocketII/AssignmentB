@@ -37,7 +37,18 @@ void StringInstrument::setNrOfStrings(int nrOfStrings)
 string StringInstrument::toStringSpecific() const
 {
     stringstream ss;
-    ss << "\nAntal Strängar: " << this->nrOfStrings<<"\nKnäppinstrument: "<< this->getKnappInstrument()<<"\nStråkinstrument: " <<this->getStrakInstrument();
+    string knapp, strake;
+    if(this->getKnappInstrument() == true)
+    {
+        knapp = "falskt";
+        strake = "sant";
+    }
+    else
+    {
+        knapp = "sant";
+        strake = "falskt";
+    }
+    ss << "\nAntal Strängar: " << this->nrOfStrings<<"\nKnäppinstrument: "<< knapp<<"\nStråkinstrument: " <<strake;
     return ss.str();
 }
 

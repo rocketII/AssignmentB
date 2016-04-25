@@ -32,7 +32,18 @@ AirInstrument::AirInstrument(string namn,  bool trablas,bool bleckblas) : Instru
 string AirInstrument::toStringSpecific() const
 {
     stringstream rr;
-    rr << "\nBleckblås: " << this->bleckblas << "\n:Träblås: " << this->trablas;
+    string Bleckblas, trablas;
+    if(this->getBleckblas() == true)
+    {
+        Bleckblas = "falskt";
+        trablas = "sant";
+    }
+    else
+    {
+        Bleckblas = "sant";
+        trablas = "falskt";
+    }
+    rr << "\nBleckblås: " << Bleckblas << "\n:Träblås: " << trablas;
     return rr.str();
 }
 
