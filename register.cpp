@@ -204,7 +204,6 @@ void Register::AllaStrangInstrument(string *array)
         {
             if(typeid(*this->InstrumentLista[i])== typeid(StringInstrument))
             {
-                //after inserting two stringInstrumenst, changing one of them to lower stringsNumber, than run c segmentation fault.
                 array[q] = this->InstrumentLista[i]->toString();
                 q++;
             }

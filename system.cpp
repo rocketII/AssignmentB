@@ -196,7 +196,6 @@ void System::toString_StringInstruments(void)
     }
     else
     {
-        cout<<this->getNrOfStringInstruments()<<endl;
         this->ptr = new string[this->getNrOfStringInstruments()];
         this->instance.AllaStrangInstrument(ptr);
     }
