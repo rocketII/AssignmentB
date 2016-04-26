@@ -1,2 +1,2 @@
 # AssignmentB
-abstract virtual inheritence, Sport management in c++
+abstract virtual inheritence, MusicInstrument management in c++
