@@ -25,7 +25,7 @@ public:
     AirInstrument(const AirInstrument & orgin);
     AirInstrument & operator=(const AirInstrument & orgin);
 
-    virtual ~AirInstrument() { }
+    virtual ~AirInstrument();
 
     virtual string toStringSpecific()const;
 

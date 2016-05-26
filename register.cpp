@@ -297,6 +297,8 @@ void Register::changeNrOfStrings(int nrOfStrings, string namn)
     }
 }
 // G   remove by overwriting with last place data. If one element empty data in place 0.
+//FixCode 0x3 :: Ta bort instrument: Ej korrekt, flyttar bara namnet från det sista elementet,
+//               de andra egenskaperna kopieras aldrig
 void Register::rmInstrument(const string Uniktnamn)
 {
 

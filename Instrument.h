@@ -14,10 +14,10 @@ private:
     //data
     string namn;
 public:
-    Instrument(){};
-    Instrument(const string &namn) : namn(namn){ }
+    Instrument();
+    Instrument(const string &namn);
     Instrument& operator=(const Instrument& orgin);
-    virtual ~Instrument() { }
+    virtual ~Instrument();
     Instrument(const Instrument& orgin);
     //get and setters
     const string getNamn() const ;

@@ -67,3 +67,8 @@ AirInstrument &AirInstrument::operator=(const AirInstrument &orgin)
     }
     return *this;
 }
+
+AirInstrument::~AirInstrument()
+{
+
+}

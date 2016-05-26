@@ -25,7 +25,7 @@ void System::menutxt(void)const
 	//windows hex escape characters for åäö.
     //\x84 = ä \x94 = ö, \x86 = å.
 	cout<<"\nMusik Instrument hanterare 2016";
-	cout<<"\n Tips: efter varje inmatning tryck p\x86 retur-,linefeed- eller radbrytningstangenten.\n";
+	cout<<"\n Tips: efter varje inmatning tryck på retur-,linefeed- eller radbrytningstangenten.\n";
 	cout<<"A: Lägga till instrument.\n"
     <<"B: Presentera alla instrument.\n"
     <<"C: Presentera alla stränginstrument med all tillhörande information.\n"
@@ -45,7 +45,7 @@ void System::menu(void)
 	do
 	{
 		menutxt();
-		cout<<"\nV\x84LJ EN BOKSTAV: "<<endl;
+		cout<<"\nVÄLJ EN BOKSTAV: "<<endl;
 		cin >> choice;
 		cin.ignore();
 		switch(toupper(choice))

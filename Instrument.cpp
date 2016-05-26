@@ -36,3 +36,17 @@ void Instrument::setNamn(const string namn)
     Instrument::namn = namn;
 }
 
+Instrument::Instrument()
+{
+
+}
+
+Instrument::Instrument(const string &namn): namn(namn)
+{
+
+}
+
+Instrument::~Instrument()
+{
+
+}

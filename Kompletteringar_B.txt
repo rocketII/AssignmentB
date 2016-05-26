@@ -4,9 +4,9 @@ Gå igenom listan nedan och fixa alla krav markerade "Ej korrekt"
 
 fixed? kode   Generella krav
 
-0      0x1   Alla funktioner som kan vara konstanta (const) ska vara det: Ej korrekt, flertalet funktioner är inte const, t.ex. AllaInstrument
+1      0x1   Alla funktioner som kan vara konstanta (const) ska vara det: Ej korrekt, flertalet funktioner är inte const, t.ex. AllaInstrument
 
-0      0x2   Alla klasser delas upp i h-fil och cpp-fil: Ej korrekt, vissa funktioner är definierade i header-filer
+1      0x2   Alla klasser delas upp i h-fil och cpp-fil: Ej korrekt, vissa funktioner är definierade i header-filer
 
 
 fixed?  Krav på musikinstrument

@@ -75,3 +75,13 @@ StringInstrument &StringInstrument::operator=(const StringInstrument &orgin)
     }
     return *this;
 }
+
+StringInstrument::StringInstrument(const string namn, int nrOfStrings, bool strakInstrument, bool knappInstrument) : Instrument(namn), nrOfStrings(nrOfStrings), strakInstrument(strakInstrument), knappInstrument(knappInstrument)
+{
+
+}
+
+StringInstrument::~StringInstrument()
+{
+
+}

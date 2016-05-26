@@ -1,6 +1,6 @@
 //
 // Created by Roderik Bauhn on 2016-04-12.
-//used to be motionar.
+
 
 #ifndef ASSIGNMENTA_MOTIONAR_H
 #define ASSIGNMENTA_MOTIONAR_H
@@ -15,7 +15,7 @@ private:
     //data
     bool strakInstrument;
     bool knappInstrument;
-    int nrOfStrings;
+    int  nrOfStrings;
 public:
     //functions manage get and set. prints data to string through stringstream techniques.
     bool getStrakInstrument() const;
@@ -29,12 +29,11 @@ public:
     int getNrOfStrings() const ;
     void setNrOfStrings(int nrOfStrings) ;
 
-    StringInstrument(const string namn, int nrOfStrings, bool strakInstrument, bool knappInstrument) : Instrument(namn), nrOfStrings(nrOfStrings), strakInstrument(strakInstrument), knappInstrument(knappInstrument)
-    {    }
+    StringInstrument(const string namn, int nrOfStrings, bool strakInstrument, bool knappInstrument);
     StringInstrument(const StringInstrument & orgin);
     StringInstrument& operator=(const StringInstrument & orgin);
 
-    virtual ~StringInstrument() { }
+    virtual ~StringInstrument();
     virtual string toStringSpecific() const;
     //used in Register Class in order to move data to another Register **array.
     virtual StringInstrument * clone()const;

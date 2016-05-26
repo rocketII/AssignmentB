@@ -53,6 +53,6 @@ private:
 public:
 	System(void);
 	~System(void);
-	void menu(void);
+	void menu(void) ;
 };
 
