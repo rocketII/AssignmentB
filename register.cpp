@@ -297,8 +297,7 @@ void Register::changeNrOfStrings(int nrOfStrings, string namn)
     }
 }
 // G   remove by overwriting with last place data. If one element empty data in place 0.
-//FixCode 0x3 :: Ta bort instrument: Ej korrekt, flyttar bara namnet från det sista elementet,
-//               de andra egenskaperna kopieras aldrig
+//FixCode 0x3 ::
 void Register::rmInstrument(const string Uniktnamn)
 {
 
@@ -315,7 +314,7 @@ void Register::rmInstrument(const string Uniktnamn)
             }
             if(this->antaletInstrument() > 1)
             {
-                this->InstrumentLista[i]->setNamn( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn());
+                this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument()-1]->clone();
                 delete this->InstrumentLista[this->antaletInstrument() - 1];
                 this->InstrumentLista[this->antaletInstrument()-1] = nullptr;
                 this->antalInstrument--;
