@@ -31,18 +31,18 @@ public:
     //B. getter
     int antaletInstrument(void)const;
     //B.  fills array with two subclass data
-    void AllaInstrument(string array[]);
+    void AllaInstrument(string array[]) const;
     //C.  getter
     int antalStrangInstrument(void)const;
     //C.  fills array with subclass data
-    void AllaStrangInstrument(string array[]);
+    void AllaStrangInstrument(string array[]) const;
 
     //D. getter
     int antalLuftInstrument(void)const;
     //D. fills array with subclass data
-    void AllaLuftInstrument(string array[]);
+    void AllaLuftInstrument(string array[]) const;
     // E. limit data output from subclass
-    string AllstrangInstrumentInIntervall(int start, int end);
+    string AllstrangInstrumentInIntervall(int start, int end) const;
     //F  change data by sorting with key.
     void changeNrOfStrings(int nrOfStrings, string namn);
     // G. remove obj by key.

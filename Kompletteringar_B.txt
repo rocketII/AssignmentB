@@ -1,0 +1,25 @@
+
+
+Gå igenom listan nedan och fixa alla krav markerade "Ej korrekt"
+
+fixed? kode   Generella krav
+
+0      0x1   Alla funktioner som kan vara konstanta (const) ska vara det: Ej korrekt, flertalet funktioner är inte const, t.ex. AllaInstrument
+
+0      0x2   Alla klasser delas upp i h-fil och cpp-fil: Ej korrekt, vissa funktioner är definierade i header-filer
+
+
+fixed?  Krav på musikinstrument
+null    ---
+
+fixed?  Arv utnyttjas på ett logiskt och rimligt sätt
+null    ---
+
+fixed? Dynamisk bindning utnyttjas på ett logiskt och rimligt sätt
+null    ---
+fixed? Krav på handlern
+null    ---
+
+fixed? kode    Funktionella krav
+
+0      0x3       Ta bort instrument: Ej korrekt, flyttar bara namnet från det sista elementet, de andra egenskaperna kopieras aldrig

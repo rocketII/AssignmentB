@@ -144,7 +144,7 @@ int Register::antaletInstrument() const
     return this->antalInstrument;
 }
 //B.
-void Register::AllaInstrument(string *array)
+void Register::AllaInstrument(string *array) const
 {
     for (int i = 0; i < this->antaletInstrument() ; ++i)
     {
@@ -184,7 +184,7 @@ int Register::antalStrangInstrument() const
     return counter;
 }
 //C.
-void Register::AllaStrangInstrument(string *array)
+void Register::AllaStrangInstrument(string *array) const
 {
     int q=0;
     if(this->antaletInstrument() == 1)
@@ -243,7 +243,7 @@ int Register::antalLuftInstrument() const
     return counter;
 }
 //D.
-void Register::AllaLuftInstrument(string *array)
+void Register::AllaLuftInstrument(string *array) const
 {
     int p = 0;
     if(this->antaletInstrument() == 1)
@@ -267,7 +267,7 @@ void Register::AllaLuftInstrument(string *array)
     }
 }
 //E.
-string Register::AllstrangInstrumentInIntervall(int start, int end)
+string Register::AllstrangInstrumentInIntervall(int start, int end) const
  {
     stringstream ll;
     for (int i = 0; i < this->antaletInstrument() ; ++i)
