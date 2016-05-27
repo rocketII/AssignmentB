@@ -22,13 +22,13 @@ private:
 	string *ptr;
 	Register instance;
     //print menu text
-	void menutxt(void)const;
+    void menutxt(void)const;
     //A
     void addInstrument(void);
     //A.
     void addStringInstrument(void);
     //A.
-	void addAirInstrument(void);
+    void addAirInstrument(void);
     //B.
     void toString_InstrumentData(void);
     //B.
