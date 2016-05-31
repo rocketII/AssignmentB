@@ -244,7 +244,7 @@ int System::getNrOfLuftInstrument(void)const
 void System::getStringInstrumentWithinIntervall(void)
 {
     int min, max;
-    cout<<"\nAnge minsta stråke följt av retur:";
+    cout<<"\nAnge minsta stråke följt av retur sen max värde följt av retur:";
     cin >> min >> max;
     cout << this->instance.AllstrangInstrumentInIntervall(min, max);
 }

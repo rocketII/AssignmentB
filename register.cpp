@@ -63,7 +63,8 @@ Register& Register::operator=(const Register &orgin)
             this->antalInstrument = orgin.antalInstrument;
             this->capacitet = orgin.capacitet;
             this->InstrumentLista = new Instrument *[this->capacitet];
-            for (int i = 0; i < this->antalInstrument; i++) {
+            for (int i = 0; i < this->antalInstrument; i++)
+            {
                 this->InstrumentLista[i] = orgin.InstrumentLista[i]->clone();
             }
 
@@ -92,7 +93,7 @@ void Register::expand()
     this->capacitet += 3;
     //copy: tmp[] till this[]
     for (int i = 0; i < this->antalInstrument ; ++i)
-    {
+    { //48 bytes in 1 blocks are definitely lost in loss record 1 of 3
         this->InstrumentLista[i]= tmp[i]->clone();
     }
     //clean tmp
@@ -133,7 +134,7 @@ void Register::nyttStrangInstrument(string namn,int numberOfStrings, bool knapp,
     }
     else
     {
-        expand();
+        expand(); //48 bytes in 1 blocks are definitely lost in loss record 2 of 3
         this->InstrumentLista[this->antalInstrument] = new StringInstrument(namn,numberOfStrings,knapp, bowStroke);
         this->antalInstrument++;
     }
@@ -322,3 +323,14 @@ void Register::rmInstrument(const string Uniktnamn)
         }
     }
 }
+
+/*   Outside in another library
+72,704 bytes in 1 blocks are still reachable in loss record 3 of 3
+==16750==    at 0x4C2DB8F: malloc (in /usr/lib/valgrind/vgpreload_memcheck-amd64-linux.so)
+==16750==    by 0x4EC3EFF: ??? (in /usr/lib/x86_64-linux-gnu/libstdc++.so.6.0.21)
+==16750==    by 0x40104E9: call_init.part.0 (dl-init.c:72)
+==16750==    by 0x40105FA: call_init (dl-init.c:30)
+==16750==    by 0x40105FA: _dl_init (dl-init.c:120)
+==16750==    by 0x4000CF9: ??? (in /lib/x86_64-linux-gnu/ld-2.23.so)
+
+ */
