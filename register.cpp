@@ -317,23 +317,13 @@ void Register::rmInstrument(const string Uniktnamn)
             {
                 if ( i == this->antaletInstrument() - 1)
                 {
-                    delete this->InstrumentLista[i];
+                    delete this->InstrumentLista[i];//tog 45 minuter att inse att detta var lösningen innan kloning, suck! :-S
                     this->InstrumentLista[i] = nullptr;
                     this->antalInstrument--;
                 }
                 else
                 {
-                    /*
-                    if(typeid(this->InstrumentLista[this->antaletInstrument() - 1]) == typeid(AirInstrument))
-                    {
-                        this->InstrumentLista[i] = new AirInstrument( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn(),(dynamic_cast<AirInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getTrablas(),(dynamic_cast<AirInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getBleckblas() ) ;
-                    }
-                    else
-                    {
-                        this->InstrumentLista[i] = new StringInstrument( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn(),(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getNrOfStrings() ,(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getStrakInstrument(),(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getKnappInstrument() ) ;
-
-                    }*/
-                    delete this->InstrumentLista[i];
+                    delete this->InstrumentLista[i]; // löste minnesläckan vid testning.
                     this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument() - 1]->clone(); //copy construct with obj malloc
                     delete this->InstrumentLista[this->antaletInstrument() - 1 ];
                     this->InstrumentLista[this->antaletInstrument() - 1 ] = nullptr;
