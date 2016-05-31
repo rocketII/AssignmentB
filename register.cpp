@@ -313,19 +313,30 @@ void Register::rmInstrument(const string Uniktnamn)
                 this->InstrumentLista[0] = nullptr;
                 this->antalInstrument--;
             }
-            if(this->antaletInstrument() > 1) {
+            if(this->antaletInstrument() > 1)
+            {
                 if ( i == this->antaletInstrument() - 1)
                 {
-
                     delete this->InstrumentLista[i];
                     this->InstrumentLista[i] = nullptr;
                     this->antalInstrument--;
                 }
                 else
                 {
-                    this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument()-1]->clone();
-                    delete this->InstrumentLista[this->antaletInstrument() - 1];
-                    this->InstrumentLista[this->antaletInstrument()-1] = nullptr;
+                    /*
+                    if(typeid(this->InstrumentLista[this->antaletInstrument() - 1]) == typeid(AirInstrument))
+                    {
+                        this->InstrumentLista[i] = new AirInstrument( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn(),(dynamic_cast<AirInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getTrablas(),(dynamic_cast<AirInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getBleckblas() ) ;
+                    }
+                    else
+                    {
+                        this->InstrumentLista[i] = new StringInstrument( this->InstrumentLista[this->antaletInstrument() - 1]->getNamn(),(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getNrOfStrings() ,(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getStrakInstrument(),(dynamic_cast<StringInstrument*>(this->InstrumentLista[this->antaletInstrument() - 1]) )->getKnappInstrument() ) ;
+
+                    }*/
+                    delete this->InstrumentLista[i];
+                    this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument() - 1]->clone(); //copy construct with obj malloc
+                    delete this->InstrumentLista[this->antaletInstrument() - 1 ];
+                    this->InstrumentLista[this->antaletInstrument() - 1 ] = nullptr;
                     this->antalInstrument--;
                 }
             }
