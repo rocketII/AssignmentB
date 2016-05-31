@@ -313,12 +313,21 @@ void Register::rmInstrument(const string Uniktnamn)
                 this->InstrumentLista[0] = nullptr;
                 this->antalInstrument--;
             }
-            if(this->antaletInstrument() > 1)
-            {
-                this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument()-1]->clone();
-                delete this->InstrumentLista[this->antaletInstrument() - 1];
-                this->InstrumentLista[this->antaletInstrument()-1] = nullptr;
-                this->antalInstrument--;
+            if(this->antaletInstrument() > 1) {
+                if ( i == this->antaletInstrument() - 1)
+                {
+
+                    delete this->InstrumentLista[i];
+                    this->InstrumentLista[i] = nullptr;
+                    this->antalInstrument--;
+                }
+                else
+                {
+                    this->InstrumentLista[i]= this->InstrumentLista[this->antaletInstrument()-1]->clone();
+                    delete this->InstrumentLista[this->antaletInstrument() - 1];
+                    this->InstrumentLista[this->antaletInstrument()-1] = nullptr;
+                    this->antalInstrument--;
+                }
             }
         }
     }
